@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "fixed": {
+      "avg_response_time": 0.0,
+      "avg_relevancy": 0.017409816480710275,
+      "avg_faithfulness": 0.6944444444444443,
+      "count": 3
+    },
+    "structure": {
+      "avg_response_time": 0.0,
+      "avg_relevancy": 0.020935056905721023,
+      "avg_faithfulness": 0.46296296296296297,
+      "count": 3
+    },
+    "semantic": {
+      "avg_response_time": 0.0,
+      "avg_relevancy": 0.14510415510415509,
+      "avg_faithfulness": 0.35555555555555557,
+      "count": 3
+    },
+    "multigranular": {
+      "avg_response_time": 0.0,
+      "avg_relevancy": 0.017409816480710275,
+      "avg_faithfulness": 0.6944444444444443,
+      "count": 3
+    }
+  },
+  "results": [
+    {
+      "query": "What is machine learning?",
+      "strategy": "fixed",
+      "response_time": 0.0,
+      "relevancy": 0.014985351175865072,
+      "faithfulness": 0.6666666666666666,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "How do neural networks work?",
+      "strategy": "fixed",
+      "response_time": 0.0,
+      "relevancy": 0.00908317872603587,
+      "faithfulness": 0.6666666666666666,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "What are the applications of AI?",
+      "strategy": "fixed",
+      "response_time": 0.0,
+      "relevancy": 0.028160919540229885,
+      "faithfulness": 0.75,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "What is machine learning?",
+      "strategy": "structure",
+      "response_time": 0.0,
+      "relevancy": 0.016309523809523812,
+      "faithfulness": 0.4444444444444444,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals\n\n## What is Machine Learning?\n\nMachine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data.\n\n## Key Concepts\n\nMachine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error.\n\n## Types of Learning\n\nThere are several primary paradigms in machine learning:\n\n**Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values).",
+        "## Applications of AI\n\nMachine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies.\n\nNatural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection.\n\nRecommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy.\n\n## Challenges and Future Directions\n\nDespite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques.\n\nThe future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches.",
+        "**Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information.\n\n**Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics.\n\n## Neural Networks\n\nNeural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer.\n\nThe process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples."
+      ]
+    },
+    {
+      "query": "How do neural networks work?",
+      "strategy": "structure",
+      "response_time": 0.0,
+      "relevancy": 0.009066060458444969,
+      "faithfulness": 0.4444444444444444,
+      "retrieved_chunks": [
+        "**Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information.\n\n**Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics.\n\n## Neural Networks\n\nNeural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer.\n\nThe process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples.",
+        "## Applications of AI\n\nMachine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies.\n\nNatural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection.\n\nRecommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy.\n\n## Challenges and Future Directions\n\nDespite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques.\n\nThe future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches.",
+        "# Machine Learning Fundamentals\n\n## What is Machine Learning?\n\nMachine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data.\n\n## Key Concepts\n\nMachine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error.\n\n## Types of Learning\n\nThere are several primary paradigms in machine learning:\n\n**Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values)."
+      ]
+    },
+    {
+      "query": "What are the applications of AI?",
+      "strategy": "structure",
+      "response_time": 0.0,
+      "relevancy": 0.03742958644919429,
+      "faithfulness": 0.5,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals\n\n## What is Machine Learning?\n\nMachine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data.\n\n## Key Concepts\n\nMachine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error.\n\n## Types of Learning\n\nThere are several primary paradigms in machine learning:\n\n**Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values).",
+        "**Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information.\n\n**Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics.\n\n## Neural Networks\n\nNeural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer.\n\nThe process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples.",
+        "## Applications of AI\n\nMachine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies.\n\nNatural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection.\n\nRecommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy.\n\n## Challenges and Future Directions\n\nDespite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques.\n\nThe future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "What is machine learning?",
+      "strategy": "semantic",
+      "response_time": 0.0,
+      "relevancy": 0.2277056277056277,
+      "faithfulness": 0.4666666666666666,
+      "retrieved_chunks": [
+        "## What is Machine Learning?",
+        "# Machine Learning Fundamentals",
+        "There are several primary paradigms in machine learning:",
+        "Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error.",
+        "Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data."
+      ]
+    },
+    {
+      "query": "How do neural networks work?",
+      "strategy": "semantic",
+      "response_time": 0.0,
+      "relevancy": 0.08333333333333333,
+      "faithfulness": 0.4,
+      "retrieved_chunks": [
+        "## Neural Networks",
+        "Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer.",
+        "Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection.",
+        "# Machine Learning Fundamentals",
+        "## What is Machine Learning?"
+      ]
+    },
+    {
+      "query": "What are the applications of AI?",
+      "strategy": "semantic",
+      "response_time": 0.0,
+      "relevancy": 0.12427350427350428,
+      "faithfulness": 0.2,
+      "retrieved_chunks": [
+        "## Applications of AI",
+        "## Types of Learning",
+        "## What is Machine Learning?",
+        "The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches.",
+        "There are several primary paradigms in machine learning:"
+      ]
+    },
+    {
+      "query": "What is machine learning?",
+      "strategy": "multigranular",
+      "response_time": 0.0,
+      "relevancy": 0.014985351175865072,
+      "faithfulness": 0.6666666666666666,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "How do neural networks work?",
+      "strategy": "multigranular",
+      "response_time": 0.0,
+      "relevancy": 0.00908317872603587,
+      "faithfulness": 0.6666666666666666,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    },
+    {
+      "query": "What are the applications of AI?",
+      "strategy": "multigranular",
+      "response_time": 0.0,
+      "relevancy": 0.028160919540229885,
+      "faithfulness": 0.75,
+      "retrieved_chunks": [
+        "# Machine Learning Fundamentals ## What is Machine Learning? Machine learning is a subset of artificial intelligence that enables systems to learn from data and improve performance without explicit programming. The core idea is to develop algorithms that can identify patterns in data and use these patterns to make predictions or decisions on new, unseen data. ## Key Concepts Machine learning systems typically require three main components: data, model, and learning algorithm. The data serves as the foundation for training; the model is the mathematical representation of patterns; and the algorithm is the process that adjusts the model parameters to minimize error. ## Types of Learning There are several primary paradigms in machine learning: **Supervised Learning** involves training on labeled data where both input and output are known. The model learns to map inputs to outputs. Common tasks include classification (predicting categories) and regression (predicting continuous values). **Unsupervised Learning** works with unlabeled data to discover hidden patterns or structure. Clustering algorithms group similar data points together. Dimensionality reduction techniques compress data while preserving important information. **Reinforcement Learning** trains agents through interaction with an environment, using rewards and penalties to guide behavior toward optimal policies. This paradigm has enabled breakthrough applications in game playing and robotics. ## Neural Networks Neural networks are inspired by biological neurons and form the backbone of deep learning. A neural network consists of layers: input layer, hidden layers, and output layer. Each neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The",
+        "neuron receives inputs, computes a weighted sum, applies an activation function, and passes the result to the next layer. The process of training involves forward propagation (computing predictions) and backpropagation (updating weights based on error). This cycle repeats across many training examples. ## Applications of AI Machine learning and artificial intelligence have broad real-world applications. In healthcare, AI algorithms diagnose diseases from medical imaging and predict patient outcomes. In finance, machine learning models detect fraud and optimize trading strategies. Natural language processing, powered by neural networks, enables chatbots, machine translation, and sentiment analysis. Computer vision applications include autonomous vehicles, facial recognition, and object detection. Recommendation systems in e-commerce and streaming platforms leverage collaborative filtering and content-based approaches to suggest items users are likely to enjoy. ## Challenges and Future Directions Despite significant progress, machine learning faces challenges including data quality, model interpretability, and generalization to new domains. Ongoing research addresses these through explainable AI, transfer learning, and few-shot learning techniques. The future of AI lies in more efficient models, better handling of uncertainty, and integration of reasoning capabilities alongside deep learning approaches."
+      ]
+    }
+  ]
+}
