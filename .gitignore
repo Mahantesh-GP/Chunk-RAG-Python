@@ -1,0 +1,37 @@
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Results (optional - comment out if you want to track)
+# evaluation_results.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

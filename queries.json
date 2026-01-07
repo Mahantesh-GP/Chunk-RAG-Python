@@ -1,7 +1,7 @@
 {
   "queries": [
-    "What is machine learning?",
-    "How do neural networks work?",
-    "What are the applications of AI?"
+    "What is Leaking bucket algorithm?",
+    "How to DESIGN A RATE LIMITER?",
+    "What is Sliding window log algorithm?"
   ]
 }
