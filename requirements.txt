@@ -1,7 +1,10 @@
 llama-index==0.14.12
-openai>=0.27.0
+llama-index-core>=0.1.0
+openai>=1.0.0
+azure-openai>=1.0.0
 azure-search-documents>=11.4.0
 python-dotenv
 tqdm
 pytest
 pypdf>=4.0.0
+nest-asyncio>=1.5.8
