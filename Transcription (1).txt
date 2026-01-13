@@ -1,0 +1,197 @@
+Standard recording 12 - Transcription
+
+Time:  13 January 2026 18:47:08
+Topic:  Standard recording 12
+
+00:00
+Hello, Satish.
+
+00:01
+Hello, Satish.
+
+00:02
+Yeah, hi.So, and give one confusion.
+
+00:07
+So, I was earlier I was working for a Lama index framework, so we just wanted to find out best chunk size, correct?
+
+00:16
+That is still remains right, so other first part, yeah.
+
+00:20
+So, okay, so we're keeping, so what is the task name?
+
+00:27
+The best practices for chunking.
+
+00:29
+So now keeping that as a reference, we need to evaluate other methods, like you said, context-aware chunking.
+
+00:41
+So other method, so whatever we have already, chunkings are right, chunk sizes are we have.
+
+00:48
+Based on that, we need to implement which chunk size best with the context-aware.
+
+00:55
+Correct.
+
+00:56
+Okay.
+
+00:56
+Context awareant.See, when you say you are, you think of chunks as different types of units, correct?
+
+01:06
+Right.
+
+01:06
+Yeah.
+
+01:07
+For a given scenario, if you chunk at lower levels, like lower numbers, 128, what is the accuracy?
+
+01:15
+Okay.
+
+01:15
+When you chunk at higher level, what is the accuracy?
+
+01:18
+Yes.
+
+01:19
+And to that, what is the methodology used for that chunking?
+
+01:23
+Could be a basic chunking, maybe an advanced chunking, all of that, right?
+
+01:28
+Yes, there's a naive.
+
+01:30
+So, when you use different chunking methods and use different chunking sizes, what is that you're going to get?
+
+01:37
+OK, what would be the best way to get the results out of it?
+
+01:41
+OK, yeah, right, correct.
+
+01:43
+OK, so...No, it is clear, actually.
+
+01:47
+So, yeah, so earlier that was a confusion, so only Llama index I used LLM as a judge, actually, so that confused me earlier.
+
+01:57
+So, don't use Llama LLM as a judge.
+
+02:00
+OK, as of now, OK, so only we need to call the chunks and send it to the LLM for a response.
+
+02:08
+So, you use a basic chunking and Llama index LLM creates method and they use...
+
+02:13
+Their own indexing method, right?
+
+02:16
+Yes, and they validate against certain parameters, correct?
+
+02:19
+Right, correct.
+
+02:20
+Now, you use a different method, right?
+
+02:23
+Correct.
+
+02:23
+And find out what is a good chunk size, correct.
+
+02:28
+Correct.
+
+02:28
+So, I give you a document, right?
+
+02:31
+Yes, You split it into multiple chunks.
+
+02:35
+I will do more number of chunks, you will do less number of chunks.
+
+02:39
+Which one is giving the good accuracy?
+
+02:41
+Yes.
+
+02:42
+You use a different method, I use a different method, correct?
+
+02:45
+But we need to say you need to use this sort of chanking for this sort of document which will give you better results, correct?
+
+02:53
+So it also depends on the question also, right?
+
+02:56
+Satish, like a simple question.
+
+02:58
+That is why the question is data set, the ground truth is prepared, right?
+
+03:03
+Yes, correct.
+
+03:04
+So irrespective of the question, people are going to ask you what is the...
+
+03:10
+home warranty phone number that I can contact, all right?
+
+03:16
+That is going to be the question, irrespective of what I do at the internal level.
+
+03:21
+Nobody will, client will not say, no, you are using this chanking, that is why it doesn't work.
+
+03:26
+Correct.
+
+03:27
+Client is going to ask a question.
+
+03:29
+Correct.
+
+03:30
+How I am going to do that, how which one gives the best answer is what we need to decide.
+
+03:36
+Correct.
+
+03:36
+Right.
+
+03:36
+Correct.Okay.So I think that was a confusion clear now.
+
+03:44
+So I will then keep this, a definition as we used in a feature level, right?
+
+03:54
+This description.So that one I'll modify and based on that, like the another checking what we have used, the next one is a context-aware checking.
+
+04:04
+So I'll prepare based on that.
+
+04:06
+So right now we used on the...
+
+04:08
+Determine what is the best size for janking, so now we are going to context our, yes, sure, Satish, then okay, yeah, thank you.
+

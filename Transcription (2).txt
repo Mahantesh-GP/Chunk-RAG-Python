@@ -1,0 +1,123 @@
+Standard recording 10 - Transcription
+
+Time:  13 January 2026 17:12:33
+Topic:  Standard recording 10
+Participants:Speaker 1,  Speaker 2  
+
+Speaker 1  00:00
+That is what we are actually doing with this Lama index, right?
+
+Speaker 1  00:03
+So you are chunking at different sizes, correct?
+
+Speaker 1  00:07
+And then you are running this comparison, right?
+
+Speaker 1  00:13
+Are the metrics to find out which one is doing at what level, right?
+
+Speaker 2  00:19
+Yes.
+
+Speaker 1  00:20
+Basically, you are trying to find out what would be the best chunk size, correct?
+
+Speaker 1  00:25
+Right, correct.So there are, I mean, what I would say is you will have to address this as twofold.
+
+Speaker 1  00:36
+One is, though you are determining the best practices for chunking, at the same time you are also trying to find out what would be the best chunk size as well, based on the metrics that we are coming up with as well, right?
+
+Speaker 1  00:51
+So when we say chunks, right, the chunks can be of various methods, right?
+
+Speaker 1  00:57
+You have a context aware chunking, you have a contextual retrieval part, all of that.
+
+Speaker 1  01:03
+So now each of that chunks can be of different, different sizes, right?
+
+Speaker 2  01:08
+Correct.
+
+Speaker 1  01:10
+So that is where it helps in finding out which is the best chunking method.
+
+Speaker 1  01:16
+And within that, what is the good token size for the RAG, or the chunk size for the RAG?
+
+Speaker 1  01:23
+That is what you would be doing it here.
+
+Speaker 1  01:26
+Okay, right, so when you say what is it, a built-in LLM as a judge evaluation framework, why do we want to use LLM as a judge evaluation framework in Lama Index?
+
+Speaker 2  01:38
+So, they actually they have, you know, used, you know, LLM as a judge only because they wanted to, you know, evaluate faithful relevance and full faithfulness.
+
+Speaker 1  01:52
+Yeah, but that doesn't mean that you have to use LLM as a judge, right?
+
+Speaker 1  01:56
+See LLM as a judge, you use it when you have output from two different models and you want to compare them, right?
+
+Speaker 1  02:04
+Yeah, correct.But that is not what we are doing here.
+
+Speaker 1  02:07
+I would want you to rephrase this.
+
+Speaker 2  02:09
+Sure.
+
+Speaker 1  02:10
+Okay.So just try to stick to the definition that we have identified in our use case.
+
+Speaker 2  02:18
+Use case, yeah.
+
+Speaker 1  02:19
+Okay.Yeah.And what does it do?
+
+Speaker 1  02:22
+It is okay.I mean,What does it evaluate?
+
+Speaker 1  02:27
+Rather, it evaluates the faithfulness, relevancy, not just that, right?
+
+Speaker 1  02:32
+It also tells what is the best size for chunk, correct?
+
+Speaker 2  02:37
+Correct.So, yeah, depends on the strategy.
+
+Speaker 1  02:40
+From that perspective, you need to restructure this slide.
+
+Speaker 1  02:44
+OK, sure.And then you go in the next slide of yours, you're saying implementation to Lama index, Chrome, Chroma DB vector store.
+
+Speaker 1  02:56
+All of this is okay.We need to be saying what are the different chunking methods that we plan to try out, right?
+
+Speaker 2  03:07
+Yeah.
+
+Speaker 1  03:07
+So that list needs to be put here.
+
+Speaker 1  03:09
+Once you do that, you need to say which one is the current one that you're working on.
+
+Speaker 2  03:15
+Okay.
+
+Speaker 1  03:15
+OK, that needs to be coming out in here.
+
+Speaker 1  03:20
+Sure, Satish, I will have to then we go to refrag.
+
+Speaker 1  03:24
+Refrag, I think I like to defer.
+
