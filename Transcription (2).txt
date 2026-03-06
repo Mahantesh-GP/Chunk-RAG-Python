@@ -14,7 +14,28 @@ Speaker 1  00:07
 And then you are running this comparison, right?
 
 Speaker 1  00:13
-Are the metrics to find out which one is doing at what level, right?
+Are the metrics to find out which one is doI have an existing RAG chunking evaluation report. 
+I need to add the following two sections to it:
+
+1. **Metrics Usage Detail**
+   - Explain how each evaluation metric was applied in practice
+   - Reference the "Sample Evaluation Framework" approach from 
+     Databricks chunking best practices
+   - Describe how metric values were populated for each chunking 
+     strategy tested
+
+2. **Function Design - Keyword & Key Phrase Extraction**
+   - Explain the function design used to generate keywords and 
+     key phrases from documents
+   - Describe how this extraction was applied across ALL documents 
+     in the dataset
+   - Explain how the extracted keywords/phrases were used as ground 
+     truth or reference data to measure retrieval accuracy metrics
+   - Include the evaluation logic: how keyword match rate or 
+     phrase coverage was calculated per chunk strategy
+
+Keep the tone technical but clear. Integrate naturally into the 
+existing report structure without duplicating content already present.ing at what level, right?
 
 Speaker 2  00:19
 Yes.
