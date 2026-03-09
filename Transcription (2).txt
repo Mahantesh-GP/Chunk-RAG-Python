@@ -1,45 +1,35 @@
-I need to add the following two sections to it:
+Create a professional Word document (.docx) based on the following research notes. 
+Structure it with clear headings, sections, and readable paragraphs suitable for 
+a manager or business stakeholder audience.
 
-1. **Metrics Usage Detail**
-   - Explain how each evaluation metric was applied in practice
-   - Reference the "Sample Evaluation Framework" approach from 
-     Databricks chunking best practices
-   - Describe how metric values were populated for each chunking 
-     strategy tested
+Research content:
 
-2. **Function Design - Keyword & Key Phrase Extraction**
-   - Explain the function design used to generate keywords and 
-     key phrases from documents
-   - Describe how this extraction was applied across ALL documents 
-     in the dataset
-   - Explain how the extracted keywords/phrases were used as ground 
-     truth or reference data to measure retrieval accuracy metrics
-   - Include the evaluation logic: how keyword match rate or 
-     phrase coverage was calculated per chunk strategy
+Title: Research on Practical Application of AI/RAG Solutions
 
-Keep the tone technical but clear. Integrate naturally into the 
-existing report structure without duplicating content already present.ing at what level, right?
+The research focuses on the importance of defining the outcome of research and how 
+to effectively communicate findings for practical application.
 
+Key points to cover:
 
+1. Clear Outcome Definition
+   - There must be a clear outcome that justifies the investment in the research.
 
+2. Practical Application
+   - The core question is where the research findings can be applied in a practical context.
 
-Add a "Data Source" section to the existing report with the following details:
+3. Communication of Findings
+   - If the research has practical applications, a medium is needed to explain 
+     these applications clearly.
+   - Without proper communication, research can become a personal satisfaction 
+     rather than a widely applicable tool.
 
-## Data Source
+4. Custom RAG Solution Considerations
+   - If building a custom RAG solution, the research should outline ideal characteristics.
+   - If no custom solution is planned, the research's direct applicability might be limited.
 
-- Total source documents: 32 PDF files
-- All documents are AAA (American Automobile Association) documents
-- Each PDF was converted into Markdown format as a preprocessing step
-- The generated Markdown files served as the primary input 
-  for the entire RAG chunking pipeline — including chunking, 
-  embedding, indexing, and evaluation
-
-Explain WHY Markdown conversion was chosen:
-- Preserves document structure (headings, lists, tables)
-- Cleaner text extraction compared to raw PDF parsing
-- Better chunking quality since structure boundaries are explicit
-- Consistent format across all 32 documents ensures 
-  uniform processing
-
-Keep it concise, professional, and technical. 
-Integrate it naturally before the chunking strategy section.
+Format requirements:
+- Professional tone suitable for a manager review
+- Use headings, subheadings, and bullet points
+- Add an executive summary at the top
+- Add a conclusion section at the bottom
+- Make it easy to read for both technical and non-technical audience
