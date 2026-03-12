@@ -1,0 +1,237 @@
+
+Create a single self-contained HTML file (no external files, no build tools) 
+for an interactive research results dashboard. Use Chart.js from cdnjs CDN. 
+Do NOT use any frameworks like React or Vue.
+
+═══════════════════════════════════════
+VISUAL DESIGN
+═══════════════════════════════════════
+- Dark theme background: #0D1B2A
+- Card background: #152336
+- Border color: #2A4060
+- Primary blue: #2E75B6
+- Accent gold: #FFC000
+- Teal: #17788F
+- Green: #70AD47
+- Amber: #ED7D31
+- Muted text: #8AA8C8
+- White text: #E8F0FA
+- Font: Segoe UI, system-ui
+
+═══════════════════════════════════════
+LAYOUT STRUCTURE
+═══════════════════════════════════════
+1. TOP BANNER
+   - Title: "RAG Pipeline Research Dashboard"
+   - Subtitle: "FNHW Document Intelligence · Parse → Chunk → Retrieve"
+   - Right side pills: "✓ Research Complete", "32 PDFs Analysed", "★ Winner Identified"
+
+2. TAB BAR (5 tabs, clicking switches content area)
+   - Overview | Parsing | Chunking | Retrieval | Conclusions
+
+3. CONTENT AREA — one <div> per tab, hide/show with JS
+
+4. FOOTER
+   - "RAG Pipeline Research · FNHW Document Intelligence · 32 PDFs · 728 Queries"
+
+═══════════════════════════════════════
+TAB 1 — OVERVIEW
+═══════════════════════════════════════
+KPI cards row (6 cards, each with top colored border stripe):
+  - Documents Analysed: 32 (blue)
+  - Parsing Tools Tested: 4 (teal)
+  - Chunking Strategies: 7 (blue)
+  - Test Queries: 728 (green) — animate count-up on page load
+  - Citation Accuracy: 100% (gold)
+  - Best F1 Score: 0.42 (amber)
+
+Pipeline flow bar (horizontal, 4 stages with › arrows between):
+  Stage 1: PARSE — "4 tools evaluated" — "✦ Winner: DI_MD"
+  Stage 2: CHUNK — "7 strategies tested" — "✦ Winner: fixed_1024"
+  Stage 3: RETRIEVE — "11 metrics measured" — "✦ Winner: fixedS12"
+  Stage 4: RESULT (gold tint) — "End-to-end validated" — "Production ready"
+
+Two-column grid below:
+  Left card: Radar chart (Chart.js) comparing 6 axes:
+    Axes: Coherence, Precision, Recall, Citation Acc., F1 Score, Layout Quality
+    Dataset 1 "DI_MD + fixed_1024" (gold): [88.9, 99.5, 58.1, 100, 41.7, 95]
+    Dataset 2 "Next Best" (blue, dashed): [87.1, 98.3, 54.1, 89, 40.3, 78]
+  
+  Right card: "Winner" gold banner + horizontal progress bars:
+    Parsing DI_MD: 95%
+    Chunking fixed_1024: 89%
+    Retrieval fixedS12: 42% (F1)
+    Citation Correctness: 100%
+
+═══════════════════════════════════════
+TAB 2 — PARSING
+═══════════════════════════════════════
+KPI row (4 cards):
+  Winner: DI_MD | Tools Compared: 4 | Table Handling: Best | Layout Accuracy: ★★★★★
+
+Two-column grid:
+  Left: Horizontal bar chart — Overall Quality Score per tool:
+    DI_MD: 95 (gold), MarkItDown: 68 (blue), PdfPig: 41 (amber), PyPdf: 32 (red)
+  
+  Right: Comparison table with columns: Tool | Tables | Layout | Verdict
+    DI_MD (highlight row) | Excellent | Excellent | ✦ Recommended
+    MarkItDown | Partial | Good | Fallback option
+    PdfPig | Poor | Partial | Not recommended
+    PyPdf | Poor | Poor | Not recommended
+  
+  Below table, two insight boxes (left blue border):
+    1. "Parsing quality has a cascade effect — a poor parser degrades chunking 
+       and retrieval regardless of the strategy chosen downstream."
+    2. "Government PDFs contain dense tables and multi-column layouts. DI_MD 
+       outputs clean Markdown that preserves structure."
+
+═══════════════════════════════════════
+TAB 3 — CHUNKING
+═══════════════════════════════════════
+KPI row (5 cards):
+  Winner: fixed_1024 | Strategies: 7 | Coherence: 0.889 | Precision: 0.995 | Recall: 0.581
+
+Two-column grid (1/3 + 2/3):
+  Left: 2x2 metric boxes:
+    Coherence: 0.889 | Concept Integrity: — | Context Precision: 0.995 | Context Recall: 0.581
+  + insight: "Larger chunks improve recall but reduce precision. fixed_1024 
+    strikes the best balance."
+
+  Right: Grouped bar chart — 7 strategies, two datasets:
+    Labels: fixed_128, fixed_256, fixed_512, fixed_1024, fixed_2048, semantic, docling
+    Dataset "Chunk Coherence": [0.791, 0.822, 0.871, 0.889, 0.862, 0.841, 0.798]
+      — fixed_1024 bar highlighted gold, rest blue
+    Dataset "Context Precision": [0.851, 0.912, 0.983, 0.995, 0.961, 0.951, 0.871]
+      — teal color
+
+Full-width table below: Strategy | Parser | Coherence | Precision | Recall | Recommendation
+  fixed_1024 / DI_MD / 0.8894 / 0.9952 / 0.5811 / "★ Best Balanced" (gold badge) — highlight row
+  fixed_512  / DI_MD / 0.871  / 0.983  / 0.541  / "Good" (blue badge)
+  fixed_2048 / DI_MD / 0.862  / 0.961  / 0.601  / "Good (high recall)" (blue badge)
+  semantic   / DI_MD / 0.841  / 0.951  / 0.512  / "Semantic use-cases" (teal badge)
+  fixed_256  / DI_MD / 0.822  / 0.912  / 0.421  / "Too granular" (amber badge)
+  fixed_1024 / MarkItDown / 0.811 / 0.891 / 0.501 / "Parser limits gains" (amber badge)
+  docling    / DI_MD / 0.798  / 0.871  / 0.491  / "Not recommended" (red badge)
+
+═══════════════════════════════════════
+TAB 4 — RETRIEVAL
+═══════════════════════════════════════
+KPI row (5 cards):
+  Best Profile: fixedS12 | Citation Top-1: 100% | Best F1: 0.417 | 
+  Hallucination Rate: 0.518 (amber) | Test Examples: 728
+
+Two-column grid:
+  Left: Grouped bar chart — F1 Score vs Hallucination Rate:
+    Labels: fixed_128, fixed_256, fixed_512, fixed_1024, fixedS12, semantic, docling
+    Dataset "F1 Score": [0.318, 0.352, 0.391, 0.403, 0.417, 0.381, 0.371]
+      — fixedS12 bar gold, rest green
+    Dataset "Hallucination Rate": [0.61, 0.57, 0.54, 0.518, 0.501, 0.529, 0.542]
+      — amber color
+  + insight: "fixedS12 scores better on 174 queries vs 141 for fixed_1024 — 
+    a +23% query advantage."
+
+  Right: Horizontal progress bars — Metric Scorecard:
+    Citation Correctness @1: 100% (gold)
+    NDCG@5: 68% (green)
+    Retrieval Recall@10: 74% (blue)
+    MRR: 61% (teal)
+    F1 Score: 42% (blue)
+    Hallucination Rate ⚠: 52% (amber)
+
+Two-column grid below:
+  Left: Risk cards (3 rows with icon + title + description):
+    ⚠️ Hallucination Rate 0.52 — needs guardrails
+    📋 Invalid Example Rows 202 & 688 — excluded from scoring
+    📉 OOD Rate 0.001 — near zero, strong domain coverage
+
+  Right: Recommendation insight boxes (4 items, different left-border colors):
+    Green: Deploy fixedS12 as production profile
+    Amber: Monitor hallucination rate per release
+    Blue: Re-run evals if swapping embedding model (all-MiniLM-L6-v2)
+    Teal: Framework is reusable for new document sets
+
+═══════════════════════════════════════
+TAB 5 — CONCLUSIONS
+═══════════════════════════════════════
+Centered layout, max-width 900px:
+
+Gold winner banner:
+  👑 "Recommended Production Configuration"
+  "DI_MD · fixed_1024 · fixedS12 retrieval"
+  "Azure Document Intelligence → 1024-token chunking → fnhw_dimd_fixedS12 profile"
+
+Three cards (Final Scorecard):
+  📄 Stage 1 Parsing — DI_MD — Azure Document Intelligence, Markdown mode
+  ✂️ Stage 2 Chunking — fixed_1024 — Coherence 0.889 · Precision 0.995
+  🔍 Stage 3 Retrieval — fixedS12 — F1: 0.417 · Citation: 100%
+  Each card has gold "★ Recommended" badge
+
+Three cards (Who Benefits):
+  👩‍💻 Development Team — proven config, no guesswork
+  🧪 QA / Product Teams — baseline benchmarks established
+  🏗️ Future RAG Projects — reusable evaluation framework
+
+Four insight boxes (Key Takeaways):
+  Gold border: "Parsing is everything. DI_MD is the foundation."
+  Teal border: "1024 tokens is the sweet spot for FNHW content."
+  Green border: "Citation correctness is 100% — strong production signal."
+  Amber border: "Hallucination at 0.52 is the primary risk to manage."
+
+═══════════════════════════════════════
+COMPONENT SPECS
+═══════════════════════════════════════
+KPI Cards:
+  - 12px border-radius, dark card background
+  - Colored 3px top border stripe (blue/green/gold/teal/amber)
+  - Label: 0.72rem uppercase muted text
+  - Value: 2rem bold white
+  - Sub: 0.75rem muted
+  - Emoji icon top-right, low opacity
+  - Hover: translateY(-2px) with shadow
+
+Badges (inline):
+  badge-gold: rgba(255,192,0,0.18) background, gold text
+  badge-green: rgba(112,173,71,0.2) background, green text
+  badge-blue: rgba(46,117,182,0.2) background, light blue text
+  badge-red: rgba(192,0,0,0.2) background, red text
+  badge-amber: rgba(237,125,49,0.2) background, amber text
+  badge-teal: rgba(23,120,143,0.2) background, teal text
+  12px border-radius, 0.68rem bold uppercase, padding 2px 10px
+
+Tables:
+  - Header: rgba(46,117,182,0.25) background, muted uppercase text
+  - Rows: alternating hover state rgba(46,117,182,0.08)
+  - Winner rows: rgba(255,192,0,0.06) background
+  - 1px bottom border on each row in border color
+
+Progress Bars:
+  - Container: 8px height, border color background, 4px border-radius
+  - Fill: gradient left-to-right (darker to lighter shade of the color)
+  - Percentage text right-aligned, colored to match bar
+
+Insight Boxes:
+  - Left border 3px solid (color varies per context)
+  - Background: card2 color (#1A2D42)
+  - 0.82rem text, 1.6 line-height
+  - Bold highlighted text in gold
+
+Charts (Chart.js config):
+  - Background: transparent
+  - Grid lines: rgba(42,64,96,0.5)
+  - Tick labels: muted color, 10-11px
+  - Legend labels: muted color
+  - Border radius on bars: 5-6px
+
+═══════════════════════════════════════
+JAVASCRIPT REQUIREMENTS
+═══════════════════════════════════════
+- Tab switching: show/hide page divs, toggle active class on tab buttons
+- Count-up animation on .count-up elements (data-target attribute) 
+  using setInterval, triggers on page load
+- Charts only initialize when their tab is first activated (lazy init), 
+  track with a `charts` object to avoid re-creating
+- All chart data defined inline in JS, no fetch calls
+- Charts use Chart.js 4.4.1 from cdnjs
+
+Output: one complete .html file, all CSS in <style>, all JS in <script>.
+No comments needed. Make it work perfectly.

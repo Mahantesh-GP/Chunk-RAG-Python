@@ -1,0 +1,7 @@
+ragas==0.1.21
+openai==1.35.0
+python-dotenv==1.0.0
+datasets==2.20.0
+pandas==2.2.2
+langchain-openai==0.1.17
+langchain==0.2.11
