@@ -2,3 +2,20 @@ promptquality==0.28.0
 openai==1.35.0
 python-dotenv==1.0.0
 pandas==2.2.2
+
+
+
+/doc-coauthoring
+
+In `chunking_details.md`, there is detailed information about **Docling** 
+(its role, configuration, and usage in the chunking pipeline). 
+
+This information is currently missing from `chunking_overview.md`.
+
+Please:
+1. Read the Docling-related sections from `chunking_details.md`
+2. Add a concise but complete **Docling** section to `chunking_overview.md` 
+   that is consistent with the overview's existing tone and level of detail
+3. Place it in the appropriate section (e.g., under document parsing or 
+   pre-processing)
+4. Do not duplicate content verbatim — summarize appropriately for an overview doc
