@@ -1,0 +1,10 @@
+[
+  { "id": "q_001", "question": "What is EF Core and what problem does it solve?" },
+  { "id": "q_002", "question": "How does EF Core connect to SQL Server?" },
+  { "id": "q_003", "question": "What is DbContext in EF Core?" },
+  { "id": "q_004", "question": "How do EF Core migrations work?" },
+  { "id": "q_005", "question": "What is Azure OpenAI Service?" },
+  { "id": "q_006", "question": "Does Azure OpenAI support private networking?" },
+  { "id": "q_007", "question": "What is RAG and how does it reduce hallucination?" },
+  { "id": "q_008", "question": "How does hybrid search work in Azure AI Search?" }
+]

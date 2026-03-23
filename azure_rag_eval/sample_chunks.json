@@ -1,0 +1,58 @@
+[
+  {
+    "id": "chunk_001",
+    "content": "Entity Framework Core (EF Core) is a lightweight, extensible, open source ORM for .NET. It enables developers to work with a database using .NET objects and eliminates the need for most of the data-access code that typically needs to be written.",
+    "source": "efcore_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 1
+  },
+  {
+    "id": "chunk_002",
+    "content": "EF Core supports SQL Server via the Microsoft.EntityFrameworkCore.SqlServer package. You can install it using NuGet Package Manager or dotnet CLI. It requires a valid connection string pointing to your SQL Server instance.",
+    "source": "efcore_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 2
+  },
+  {
+    "id": "chunk_003",
+    "content": "DbContext is the primary class in EF Core for interacting with the database. It represents a session with the database and can be used to query and save instances of your entities. DbContext combines the Unit of Work and Repository patterns.",
+    "source": "efcore_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 3
+  },
+  {
+    "id": "chunk_004",
+    "content": "EF Core migrations allow developers to incrementally update the database schema to keep it in sync with the application data model while preserving existing data. Migrations are created using the Add-Migration command.",
+    "source": "efcore_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 4
+  },
+  {
+    "id": "chunk_005",
+    "content": "Azure OpenAI Service provides REST API access to OpenAI's language models including GPT-4, GPT-3.5-Turbo, and Embeddings. It runs on Azure infrastructure with enterprise-grade security and compliance.",
+    "source": "azure_openai_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 1
+  },
+  {
+    "id": "chunk_006",
+    "content": "Azure OpenAI supports private networking through VNet integration and private endpoints, allowing organizations to connect their Azure OpenAI resources to their virtual networks without exposing them to the public internet.",
+    "source": "azure_openai_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 2
+  },
+  {
+    "id": "chunk_007",
+    "content": "Retrieval-Augmented Generation (RAG) is a technique that grounds LLM responses in external documents retrieved at query time. It reduces hallucination by conditioning the model on real source material rather than relying solely on model memory.",
+    "source": "rag_guide.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 1
+  },
+  {
+    "id": "chunk_008",
+    "content": "Azure AI Search supports hybrid search combining vector search and keyword search using Reciprocal Rank Fusion (RRF). This gives better retrieval results than either approach alone by combining semantic similarity with lexical matching.",
+    "source": "azure_search_docs.pdf",
+    "chunk_strategy": "fixed_1024",
+    "chunk_index": 1
+  }
+]
