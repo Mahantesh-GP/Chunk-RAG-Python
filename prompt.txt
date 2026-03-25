@@ -1,0 +1,29 @@
+You are a security engineer. I have 3 vulnerability scan report files: one for CSS, one for HTML, and one for JavaScript.
+
+Your task:
+1. Read the first scan file (CSS vulnerabilities)
+2. Identify each vulnerability listed
+3. Fix the vulnerable code one issue at a time
+4. After all CSS fixes are done, create a file `CSS_Vulnerability_Fixes.md` documenting:
+   - Vulnerability name
+   - Severity
+   - What was wrong
+   - What was changed and why
+5. Repeat the same process for the HTML scan file → create `HTML_Vulnerability_Fixes.md`
+6. Repeat the same process for the JavaScript scan file → create `JS_Vulnerability_Fixes.md`
+
+Rules:
+- Fix one file group at a time. Do not move to the next until current fixes and .md are complete.
+- Do not introduce new dependencies unless absolutely necessary.
+- Follow OWASP Top 10 remediation best practices.
+- Preserve existing functionality — only change what is needed to fix the vulnerability.
+- In the .md file, use this structure for each fix:
+
+## Fix #[N]: [Vulnerability Name]
+**Severity:** Critical / High / Medium / Low  
+**Location:** [file name, line number if available]  
+**Issue:** [what the problem was]  
+**Fix Applied:** [what was changed]  
+**Reference:** [OWASP link or CWE ID]
+
+Start with the CSS scan file now.
