@@ -1,29 +1,35 @@
-You are a security engineer. I have 3 vulnerability scan report files: one for CSS, one for HTML, and one for JavaScript.
+You are a security vulnerability scanner. 
+Scan the following files for security vulnerabilities:
+- All .css files
+- All .html files  
+- All .js files
 
-Your task:
-1. Read the first scan file (CSS vulnerabilities)
-2. Identify each vulnerability listed
-3. Fix the vulnerable code one issue at a time
-4. After all CSS fixes are done, create a file `CSS_Vulnerability_Fixes.md` documenting:
-   - Vulnerability name
-   - Severity
-   - What was wrong
-   - What was changed and why
-5. Repeat the same process for the HTML scan file → create `HTML_Vulnerability_Fixes.md`
-6. Repeat the same process for the JavaScript scan file → create `JS_Vulnerability_Fixes.md`
+For each file, scan and report:
+1. Vulnerability name
+2. Severity (Critical / High / Medium / Low)
+3. File name and line number
+4. What the vulnerable code is
+5. Why it is a vulnerability (OWASP reference or CWE ID)
+
+Report format for each finding:
+
+## [Vulnerability Name]
+**File:** filename.css / .html / .js  
+**Line:** XX  
+**Severity:** Critical / High / Medium / Low  
+**Vulnerable Code:** `code snippet`  
+**Reason:** Why this is a security risk  
+**OWASP / CWE:** Reference ID  
 
 Rules:
-- Fix one file group at a time. Do not move to the next until current fixes and .md are complete.
-- Do not introduce new dependencies unless absolutely necessary.
-- Follow OWASP Top 10 remediation best practices.
-- Preserve existing functionality — only change what is needed to fix the vulnerability.
-- In the .md file, use this structure for each fix:
+- Do NOT fix anything, only scan and report
+- Scan CSS first, then HTML, then JavaScript
+- At the end give a summary:
 
-## Fix #[N]: [Vulnerability Name]
-**Severity:** Critical / High / Medium / Low  
-**Location:** [file name, line number if available]  
-**Issue:** [what the problem was]  
-**Fix Applied:** [what was changed]  
-**Reference:** [OWASP link or CWE ID]
+| File Type | Total Vulnerabilities | Critical | High | Medium | Low |
+|-----------|-----------------------|----------|------|--------|-----|
+| CSS       |                       |          |      |        |     |
+| HTML      |                       |          |      |        |     |
+| JavaScript|                       |          |      |        |     |
 
-Start with the CSS scan file now.
+Start scanning CSS files now.
