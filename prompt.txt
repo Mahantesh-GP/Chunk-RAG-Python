@@ -1,35 +1,82 @@
-You are a security vulnerability scanner. 
-Scan the following files for security vulnerabilities:
-- All .css files
-- All .html files  
-- All .js files
 
-For each file, scan and report:
-1. Vulnerability name
-2. Severity (Critical / High / Medium / Low)
-3. File name and line number
-4. What the vulnerable code is
-5. Why it is a vulnerability (OWASP reference or CWE ID)
+--emo/vulnerable.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PMO Dashboard - Vulnerable</title>
+</head>
+<body>
 
-Report format for each finding:
+  <h2>PMO Project Dashboard</h2>
 
-## [Vulnerability Name]
-**File:** filename.css / .html / .js  
-**Line:** XX  
-**Severity:** Critical / High / Medium / Low  
-**Vulnerable Code:** `code snippet`  
-**Reason:** Why this is a security risk  
-**OWASP / CWE:** Reference ID  
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Project</th>
+      <th>Status</th>
+      <th>Resources</th>
+    </tr>
+    <tr>
+      <td>Project Alpha</td>
+      <td>Green</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Project Beta</td>
+      <td>Red</td>
+      <td>8</td>
+    </tr>
+  </table>
 
-Rules:
-- Do NOT fix anything, only scan and report
-- Scan CSS first, then HTML, then JavaScript
-- At the end give a summary:
+  <!-- Simulating injected malicious data -->
+  <script>
+    // Attacker injected this script into the page
+    // In real attack this comes from tampered data
+    alert("XSS Attack! I can read your data: \n\n" + document.body.innerText);
+  </script>
 
-| File Type | Total Vulnerabilities | Critical | High | Medium | Low |
-|-----------|-----------------------|----------|------|--------|-----|
-| CSS       |                       |          |      |        |     |
-| HTML      |                       |          |      |        |     |
-| JavaScript|                       |          |      |        |     |
+</body>
+</html>
 
-Start scanning CSS files now.
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PMO Dashboard - Protected</title>
+
+  <!-- CSP blocks any inline scripts -->
+  <meta http-equiv="Content-Security-Policy" 
+        content="script-src 'none';">
+
+</head>
+<body>
+
+  <h2>PMO Project Dashboard</h2>
+
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Project</th>
+      <th>Status</th>
+      <th>Resources</th>
+    </tr>
+    <tr>
+      <td>Project Alpha</td>
+      <td>Green</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Project Beta</td>
+      <td>Red</td>
+      <td>8</td>
+    </tr>
+  </table>
+
+  <!-- Same malicious script -->
+  <script>
+    alert("XSS Attack! I can read your data: \n\n" + document.body.innerText);
+  </script>
+
+</body>
+</html>
