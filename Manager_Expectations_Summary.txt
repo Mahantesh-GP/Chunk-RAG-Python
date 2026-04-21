@@ -1,0 +1,78 @@
+MANAGER EXPECTATIONS — SUMMARY
+================================
+For: Team / Colleague briefing
+Date: April 2026
+
+
+WHAT MANAGER EXPECTS
+---------------------
+We are building more dashboards going forward. Right now there is no
+proper process for how we handle them. Manager wants us to define a
+simple generic process that works for any dashboard or application
+we build or maintain.
+
+
+3 KEY THINGS HE SAID
+---------------------
+
+1. Think bigger — not just validation
+   We were thinking only about testing and validation.
+   He wants the full picture — from the moment a requirement comes in
+   to deployment and maintenance.
+   Validation is just one step inside that.
+
+2. Make it generic
+   Do not tie it to Excel or the audit dashboard.
+   Tomorrow it could be a database, a SharePoint page, anything.
+   The process should work for all of them.
+
+3. Keep it simple
+   He does not want a detailed document with hundreds of checks.
+   Just key steps, key handoffs, key checkpoints.
+   Like notes on paper. Simple enough that any new team member
+   can follow it.
+
+
+THE PROCESS HE HAS IN MIND
+---------------------------
+
+   Requirement comes in
+         ↓
+   Understand it
+   (purpose, data source, frequency, stakeholders)
+         ↓
+   Check code into repo
+   Create work item in Azure DevOps
+         ↓
+   Build it
+   (PR review, no self approval)
+         ↓
+   Validate critical scenarios
+   (manual first, automate if recurring)
+         ↓
+   Deploy
+   (notify stakeholders, confirm team ownership)
+         ↓
+   Maintain
+   (bugs, vulnerabilities, enhancements — same cycle)
+
+
+WHY HE WANTS THIS
+-----------------
+Because dashboards are growing. If there is no process, every new
+dashboard will be handled differently by different people.
+He wants one consistent way the whole team follows — not dependent
+on any one person.
+
+
+WHAT HE DOES NOT WANT
+----------------------
+- A 6 sheet Excel with hundreds of validation checks
+- Deep technical documentation
+- Individual names assigned — team ownership only
+- Perfection — deliver fast and good enough
+
+
+ONE LINE SUMMARY
+----------------
+Simple process. Generic. One page. Key steps only.
