@@ -12,4 +12,69 @@ TESTING FRAMEWORK:
 FILE PATHS — these are fixed, do not change:
 - Test target HTML: Package/Rollout/rllot_dashboard.html
 - Data source JSON: Package/Rollout/rllot_data.json
-- Config file: config.py (verify rol
+- Config file: config.py (verify rollout entry exists only)
+- Screenshots: tests/screenshots/rollout/baseline.png
+- Reports: tests/reports/rollout_report.html
+
+EXISTING FILES — do not recreate or modify:
+- config.py
+- process_rollout.py
+- build_rollout_dashboard.py
+- Package/Rollout/rllot_dashboard.html
+- Package/Rollout/rllot_data.json
+
+WHAT TO CREATE — tests only:
+- tests/test_rollout_dashboard.py
+- tests/reports/ folder
+
+ARCHITECTURE DECISIONS per requirement:
+
+FR-001 Page load:
+Use Playwright page.goto() with file protocol
+Assert page loads without errors
+
+FR-002 Title check:
+Use page.title() or page.locator("h1")
+Assert contains "GHCP Rollout Dashboard"
+
+FR-003 Sections present:
+Use page.locator() for each section
+Check three sections: BackEnd_Unit_Testing,
+Gen_Test_Case, Gen_Scripts_4_PostMan
+
+FR-004 Data accuracy:
+Read rllot_data.json first using Python json module
+Parse HTML using Playwright locator
+Compare JSON values against HTML content
+NO hardcoded expected values — always read from JSON
+
+FR-005 CSP validation:
+Read HTML file as raw string using Python open()
+Search for content-security-policy in string
+Do NOT use Playwright for this — file parse only
+
+FR-006 No inline handlers:
+Read HTML file as raw string
+Use regex to find on*= patterns
+Assert zero matches found
+
+FR-007 Baseline screenshot:
+Playwright full page screenshot
+Save to tests/screenshots/rollout/baseline.png
+Always runs LAST — after all other tests pass
+
+TEST ORDER — enforce this exact sequence:
+Phase 1 Structure: FR-001, FR-002, FR-003
+Phase 2 Data: FR-004
+Phase 3 Security: FR-005, FR-006
+Phase 4 Baseline: FR-007
+
+ENVIRONMENT:
+- Windows PowerShell
+- Python virtual environment at .venv/
+- Playwright Chromium browser
+
+Validate all decisions against constitution.md
+before writing plan.md.
+Document any exceptions with justification.
+Generate plan.md, research.md, and quickstart.md.
