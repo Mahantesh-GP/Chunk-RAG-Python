@@ -1,6 +1,15 @@
-After all tests pass, generate a test execution report:
-- File: tests/reports/rollout_test_report.md
-- Include: test name, pass/fail status, which FR-XXX it covers,
-  timestamp of run, screenshot path
-- Format: Markdown table — readable by manager without 
-  technical knowledge
+/speckit.plan
+
+Tech stack and architecture for feature 
+001-rollout-dashboard-e2e-tests:
+
+TESTING FRAMEWORK:
+- Framework: Playwright Python with pytest-playwright
+- Single test file: tests/test_rollout_dashboard.py
+- Run command: pytest tests/test_rollout_dashboard.py -v
+- Report: pytest-html to tests/reports/rollout_report.html
+
+FILE PATHS — these are fixed, do not change:
+- Test target HTML: Package/Rollout/rllot_dashboard.html
+- Data source JSON: Package/Rollout/rllot_data.json
+- Config file: config.py (verify rol
