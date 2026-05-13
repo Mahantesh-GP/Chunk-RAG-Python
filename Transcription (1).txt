@@ -1,7 +1,14 @@
 $original = "C:\EA Work\Office_Time\Source Code\OfficeTime"
 $fixed = "C:\EA Work\OfficeTimeFixedVersion\Office_Time\Source Code\OfficeTime"
 
-Get-ChildItem -Recurse -File $original | ForEach-Object {
+Get-ChildItem -Recurse -File $original | 
+Where-Object { 
+    $_.FullName -notmatch "\\bin\\" -and 
+    $_.FullName -notmatch "\\obj\\" -and
+    $_.FullName -notmatch "\\.vs\\" -and
+    $_.FullName -notmatch "CopilotIndices"
+} |
+ForEach-Object {
     $rel = $_.FullName.Replace($original, "")
     $fixedFile = Join-Path $fixed $rel
     if (Test-Path $fixedFile) {
