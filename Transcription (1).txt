@@ -1,18 +1,1 @@
-$original = "C:\EA Work\Office_Time\Source Code\OfficeTime"
-$fixed = "C:\EA Work\Office_Time\Office_Time_fixed_vul\Source Code\OfficeTime"
-
-Get-ChildItem -Recurse -File $original |
-Where-Object { 
-    $_.Extension -in ".cs",".config",".cshtml",".js",".css",".xml"
-} |
-ForEach-Object {
-    $rel = $_.FullName.Replace($original, "")
-    $fixedFile = Join-Path $fixed $rel
-    if (Test-Path $fixedFile) {
-        $h1 = (Get-FileHash $_.FullName -Algorithm MD5).Hash
-        $h2 = (Get-FileHash $fixedFile -Algorithm MD5).Hash
-        if ($h1 -ne $h2) {
-            Write-Host "CHANGED: $rel" -ForegroundColor Yellow
-        }
-    }
-}
+xcopy /E /Y "C:\EA Work\OfiiceTimeFixedVersion\Office_Time\Source Code\OfficeTime\*" "C:\EA Work\Office_Time\Source Code\OfficeTime\"
