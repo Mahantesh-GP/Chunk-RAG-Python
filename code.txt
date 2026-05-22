@@ -1,67 +1,155 @@
-LlamaIndex – Response Evaluation Module (for RAG Optimization)
-What is it?
+# Horizontal Consolidated Vulnerability Report
+**Project:** VulnDemo API  
+**Date:** 2026-05-22  
+**Scanners:** Fortify | Mend SAST | Skill-based Exploitation Validator | Speckit
 
-A built-in LLM-as-Judge evaluation framework in LlamaIndex
+---
 
-Used to measure RAG answer quality automatically
+## Legend
+| Symbol | Meaning |
+|--------|---------|
+| ✅ | Scanner flagged this issue |
+| ❌ | Scanner did NOT flag this issue |
+| ~~strikethrough~~ | Confirmed False Positive |
 
-Eliminates manual or subjective evaluation
+**Confidence Score:**
+- **4/4** → Fix Immediately (all scanners agree)
+- **3/4** → Fix (high confidence)
+- **2/4** → Review before fixing
+- **1/4** → Possible False Positive — verify first
 
-What does it evaluate?
+---
 
-Faithfulness – Is the answer grounded in retrieved chunks (hallucination check)
+## Horizontal Merged Analysis
 
-Relevancy – Does the answer correctly address the user query?
+| # | Severity | Issue Category | Location | Fortify | Mend SAST | Skill Validator | Speckit | Confidence | Action |
+|---|----------|---------------|----------|---------|-----------|-----------------|---------|------------|--------|
+| H-001 | Critical | SQL Injection | AuthController.cs:22–24 | ✅ F-004 | ✅ F-018 | ✅ F-041 | ✅ F-058 | 4/4 | **Fix Immediately** |
+| H-002 | Critical | SQL Injection | TodoController.cs:21–24 | ✅ F-005, F-006 | ✅ F-019 | ✅ F-042 | ✅ F-058 | 4/4 | **Fix Immediately** |
+| H-003 | Critical | Path Manipulation / Path Traversal | AttachmentController.cs:13–64 | ✅ F-001, F-002, F-003 | ✅ F-014, F-015, F-016, F-017 | ✅ F-046, F-047 | ✅ F-061 | 4/4 | **Fix Immediately** |
+| H-004 | Critical | Hardcoded Credentials and Tokens | AuthController.cs:12, Program.cs:80 | ❌ | ✅ F-023–F-039 | ❌ | ✅ F-056 | 2/4 | **Review** |
+| H-005 | Critical | Sensitive Data Exposure | UserController.cs:57–73 | ❌ | ❌ | ✅ F-040 | ✅ F-065 | 2/4 | **Review** |
+| H-006 | Critical | Plaintext Password Storage | AuthController.cs:38–48, Program.cs:57–63 | ❌ | ❌ | ✅ F-048 | ✅ F-057 | 2/4 | **Review** |
+| H-007 | High | Mass Assignment / Sensitive Field Exposure | Models.cs:29–61, AuthController.cs:38–53 | ✅ F-008, F-009, F-010, F-011 | ❌ | ✅ F-045 | ✅ F-059 | 3/4 | **Fix** |
+| H-008 | High | XPath Injection | UserController.cs:110–132 | ✅ F-013 | ✅ F-020 | ✅ F-052 | ❌ | 3/4 | **Fix** |
+| H-009 | High | Broken Access Control (Role in Header) | UserController.cs:24–53 | ❌ | ❌ | ✅ F-043 | ✅ F-059 | 2/4 | **Review** |
+| H-010 | High | Stored / Reflected XSS | TodoController.cs:28–38, CommentController.cs:15–30 | ❌ | ❌ | ✅ F-051 | ✅ F-062 | 2/4 | **Review** |
+| H-011 | High | Path Traversal (Read) | AttachmentController.cs:12–19 | ❌ | ❌ | ✅ F-046 | ✅ F-061 | 2/4 | **Review** |
+| H-012 | High | Plaintext Password Storage | AuthController.cs:47–48, Program.cs:57–63 | ❌ | ❌ | ✅ F-048 | ✅ F-057 | 2/4 | **Review** |
+| H-013 | High | Insecure Cryptography (MD5, 3DES) | CryptoUtil.cs:7–43, AuthController.cs:70 | ❌ | ❌ | ✅ F-055 | ✅ F-060 | 2/4 | **Review** |
+| H-014 | High | User Enumeration + Host Header Injection | AuthController.cs:55–70 | ❌ | ❌ | ✅ F-054 | ✅ F-063 | 2/4 | **Review** |
+| H-015 | High | SSRF | UserController.cs:85–97 | ❌ | ❌ | ✅ F-050 | ❌ | 1/4 | ⚠️ Possible FP |
+| H-016 | High | HTTP Header Injection | AttachmentController.cs:25–31 | ❌ | ❌ | ✅ F-044 | ❌ | 1/4 | ⚠️ Possible FP |
+| H-017 | High | Security Misconfiguration (Debug Endpoint) | UserController.cs:98–107 | ❌ | ❌ | ✅ F-049 | ❌ | 1/4 | ⚠️ Possible FP |
+| H-018 | High | Server-Side Request Forgery | UserController.cs:88 | ✅ F-012 | ❌ | ❌ | ❌ | 1/4 | ⚠️ Possible FP |
+| H-019 | High | Insecure Transport: Database | Program.cs:18 | ✅ F-007 | ❌ | ❌ | ❌ | 1/4 | ⚠️ Possible FP |
+| H-020 | Medium | Hardcoded Password/Credentials | AuthController.cs, TodoController.cs, CommentController.cs, UserController.cs (multiple lines) | ❌ | ✅ F-023–F-039 | ❌ | ✅ F-056 | 2/4 | **Review** |
+| H-021 | Medium | Error Messages Information Exposure | AttachmentController.cs:70, UserController.cs:96 | ❌ | ✅ F-021, F-022 | ❌ | ✅ F-066 | 2/4 | **Review** |
+| H-022 | Medium | Security Misconfiguration (CORS) | Program.cs:9–14 | ❌ | ❌ | ✅ F-053 | ✅ F-064 | 2/4 | **Review** |
+| H-023 | Medium | IDOR (Insecure Direct Object Reference) | TodoController.cs:49 | ❌ | ❌ | ❌ | ✅ F-067 | 1/4 | ⚠️ Possible FP |
+| H-024 | Medium | No Rate Limiting / CSRF Protection | CommentController.cs:37, 57 | ❌ | ❌ | ❌ | ✅ F-068 | 1/4 | ⚠️ Possible FP |
 
-Correctness / Similarity – (Optional) Matches expected answers
+---
 
-Guideline adherence – Follows response rules (if defined)
+## Summary by Confidence
 
-Why used in Chunk Size Experiment?
+### 🔴 Fix Immediately (4/4)
+| H# | Issue | Location |
+|----|-------|----------|
+| H-001 | SQL Injection | AuthController.cs |
+| H-002 | SQL Injection | TodoController.cs |
+| H-003 | Path Manipulation / Traversal | AttachmentController.cs |
 
-Same dataset + same questions
+### 🟠 Fix (3/4)
+| H# | Issue | Location |
+|----|-------|----------|
+| H-007 | Mass Assignment / Sensitive Field Exposure | Models.cs, AuthController.cs |
+| H-008 | XPath Injection | UserController.cs |
 
-Run RAG with different chunk sizes
+### 🟡 Review Before Fixing (2/4)
+| H# | Issue | Location |
+|----|-------|----------|
+| H-004 | Hardcoded Credentials and Tokens | AuthController.cs, Program.cs |
+| H-005 | Sensitive Data Exposure | UserController.cs |
+| H-006 | Plaintext Password Storage | AuthController.cs, Program.cs |
+| H-009 | Broken Access Control | UserController.cs |
+| H-010 | Stored / Reflected XSS | TodoController.cs, CommentController.cs |
+| H-013 | Insecure Cryptography | CryptoUtil.cs, AuthController.cs |
+| H-014 | User Enumeration + Host Header Injection | AuthController.cs |
+| H-020 | Hardcoded Password/Credentials | Multiple files |
+| H-021 | Error Messages Information Exposure | AttachmentController.cs, UserController.cs |
+| H-022 | Security Misconfiguration (CORS) | Program.cs |
 
-Compare scores → data-driven decision on optimal granularity
+### ⚪ Possible False Positives (1/4) — Verify First
+| H# | Issue | Location | Only Flagged By |
+|----|-------|----------|-----------------|
+| H-015 | SSRF | UserController.cs:85–97 | Skill Validator only |
+| H-016 | HTTP Header Injection | AttachmentController.cs:25–31 | Skill Validator only |
+| H-017 | Security Misconfiguration (Debug Endpoint) | UserController.cs:98–107 | Skill Validator only |
+| H-018 | Server-Side Request Forgery | UserController.cs:88 | Fortify only |
+| H-019 | Insecure Transport: Database | Program.cs:18 | Fortify only |
+| H-023 | IDOR | TodoController.cs:49 | Speckit only |
+| H-024 | No Rate Limiting / CSRF Protection | CommentController.cs:37, 57 | Speckit only |
 
-Finds the best trade-off between context & precision
+---
 
-How it works (High-level Flow)
+## Raw Finding Cross-Reference
 
-Generate queries from documents
+| Raw ID | Category | Scanner | Maps To |
+|--------|----------|---------|---------|
+| F-001 | Path Manipulation | Fortify | H-003 |
+| F-002 | Path Manipulation | Fortify | H-003 |
+| F-003 | Path Manipulation | Fortify | H-003 |
+| F-004 | SQL Injection | Fortify | H-001 |
+| F-005 | SQL Injection | Fortify | H-002 |
+| F-006 | SQL Injection | Fortify | H-002 |
+| F-007 | Insecure Transport: Database | Fortify | H-019 |
+| F-008 | Mass Assignment | Fortify | H-007 |
+| F-009 | Mass Assignment | Fortify | H-007 |
+| F-010 | Mass Assignment | Fortify | H-007 |
+| F-011 | Mass Assignment | Fortify | H-007 |
+| F-012 | Server-Side Request Forgery | Fortify | H-018 |
+| F-013 | XPath Injection | Fortify | H-008 |
+| F-014 | Path/Directory Traversal | Mend SAST | H-003 |
+| F-015 | Path/Directory Traversal | Mend SAST | H-003 |
+| F-016 | Path/Directory Traversal | Mend SAST | H-003 |
+| F-017 | Path/Directory Traversal | Mend SAST | H-003 |
+| F-018 | SQL Injection | Mend SAST | H-001 |
+| F-019 | SQL Injection | Mend SAST | H-002 |
+| F-020 | XPath Injection | Mend SAST | H-008 |
+| F-021 | Error Messages Info Exposure | Mend SAST | H-021 |
+| F-022 | Error Messages Info Exposure | Mend SAST | H-021 |
+| F-023–F-039 | Hardcoded Password/Credentials | Mend SAST | H-020 |
+| F-040 | Sensitive Data Exposure | Skill Validator | H-005 |
+| F-041 | SQL Injection (Auth Bypass) | Skill Validator | H-001 |
+| F-042 | SQL Injection (Data Exfil) | Skill Validator | H-002 |
+| F-043 | Broken Access Control | Skill Validator | H-009 |
+| F-044 | HTTP Header Injection | Skill Validator | H-016 |
+| F-045 | Mass Assignment / Privilege Escalation | Skill Validator | H-007 |
+| F-046 | Path Traversal (Read) | Skill Validator | H-003 |
+| F-047 | Path Traversal (Write) + Unrestricted Upload | Skill Validator | H-003 |
+| F-048 | Plaintext Password Storage | Skill Validator | H-006 |
+| F-049 | Security Misconfiguration (Debug Endpoint) | Skill Validator | H-017 |
+| F-050 | SSRF | Skill Validator | H-015 |
+| F-051 | Stored XSS | Skill Validator | H-010 |
+| F-052 | XPath Injection | Skill Validator | H-008 |
+| F-053 | Security Misconfiguration (CORS) | Skill Validator | H-022 |
+| F-054 | User Enumeration + Host Header Injection | Skill Validator | H-014 |
+| F-055 | Weak Cryptography | Skill Validator | H-013 |
+| F-056 | Hardcoded Credentials and Tokens | Speckit | H-004 |
+| F-057 | Plaintext Password Storage | Speckit | H-006 |
+| F-058 | SQL Injection in Login and Search | Speckit | H-001, H-002 |
+| F-059 | Broken Access Control | Speckit | H-009 |
+| F-060 | Insecure Cryptography | Speckit | H-013 |
+| F-061 | Path Traversal and Unrestricted File Upload | Speckit | H-003 |
+| F-062 | Stored and Reflected XSS | Speckit | H-010 |
+| F-063 | User Enumeration and Host Header Injection | Speckit | H-014 |
+| F-064 | Security Misconfiguration (Swagger, CORS) | Speckit | H-022 |
+| F-065 | Sensitive Data Exposure in API Responses | Speckit | H-005 |
+| F-066 | Exposed Internal Paths and Stack Traces | Speckit | H-021 |
+| F-067 | IDOR | Speckit | H-023 |
+| F-068 | No Rate Limiting or CSRF Protection | Speckit | H-024 |
 
-Run RAG pipeline
+---
 
-Pass Query + Retrieved Context + Response
-
-LLM evaluates and returns score + pass/fail
-
-Key Value
-
-Objective RAG quality metrics
-
-Faster tuning of chunk size & retrieval strategy
-
-Reduces hallucination risk
-
-Ideal for enterprise RAG validation
-
-One-line takeaway (bottom of slide)
-
-“LlamaIndex Response Evaluation enables automated, LLM-based quality scoring of RAG responses—making chunk size selection evidence-driven instead of guesswork.”
-
-
-Why This Matters (Bottom strip of slide)
-
-Reduces hallucinations
-
-Improves answer accuracy
-
-Enables scientific tuning of RAG systems
-
-Essential for enterprise-grade RAG
-
-One-liner for presenter notes
-
-“Instead of guessing the best chunk size, LlamaIndex evaluates RAG responses using an LLM judge and gives us measurable scores like faithfulness and relevancy.”
+*Report generated from 68 raw findings across 4 scanners. Deduplicated to 24 unique issues.*
