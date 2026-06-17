@@ -1,0 +1,411 @@
+═══════════════════════════════════════════════════════════════════
+  FORUM QUESTIONS — PLAYWRIGHT TECH SESSION
+  EA Team | April 2026
+  Presenter: Mahantesh
+═══════════════════════════════════════════════════════════════════
+
+HOW TO USE
+──────────────────────────────────────────────────────────────────
+- Ask these questions at the right moment — listed with slide number
+- Wait 5 seconds after asking before continuing
+- For screen share sessions — say "type yes or no in chat"
+- Acknowledge every answer — say "exactly" or "great point"
+- If no one answers — answer it yourself and move on
+- Keep it to 1-2 responses per question — do not let it drag
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 1 — BEFORE YOU START (Icebreakers)
+═══════════════════════════════════════════════════════════════════
+
+Q1.  Quick show of hands — or type in chat — how many of you have
+     used Selenium at least once in your career?
+
+     → Why ask: You see the room split. QA will raise hands.
+       Developers may not. Sets up why Playwright matters.
+
+──────────────────────────────────────────────────────────────────
+
+Q2.  How many of you have had a test that passed yesterday and
+     failed today — for no clear reason — same code, same data?
+
+     → Why ask: Everyone laughs. You then say:
+       "That is called a flaky test. That is what we talk about today."
+
+──────────────────────────────────────────────────────────────────
+
+Q3.  How many of you have manually opened a browser and checked
+     something that you knew should be automated — but there was
+     no time to automate it?
+
+     → Why ask: Everyone relates. Sets up the problem statement
+       before you even open the first slide.
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 2 — SLIDE 4 (Problem Statement)
+═══════════════════════════════════════════════════════════════════
+
+Q4.  Someone on our team was spending 45 minutes manually checking
+     a dashboard every single day. What is the most repetitive
+     manual task you do regularly that you wish was automated?
+
+     → Why ask: Gets the audience to connect personally with the
+       problem. 2-3 people will respond. Listen, acknowledge,
+       then say: "That is exactly the kind of thing Playwright
+       can solve."
+
+──────────────────────────────────────────────────────────────────
+
+Q5.  If two different developers check the same thing manually —
+     do you think they check it exactly the same way every time?
+
+     → Why ask: Answer is obviously no. Leads to your point
+       about inconsistency and lack of standard.
+
+──────────────────────────────────────────────────────────────────
+
+Q6.  When you deploy something manually validated — how confident
+     are you that everything is working? 100 percent? 80 percent?
+     Less?
+
+     → Why ask: No one says 100 percent. You then say:
+       "With Playwright — you know exactly what was checked
+       and it is the same check every single time."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 3 — SLIDE 5 (What Is Playwright)
+═══════════════════════════════════════════════════════════════════
+
+Q7.  Before today — how many of you had heard of Playwright
+     but never actually used it?
+
+     → Why ask: Shows you the knowledge split in the room.
+       Helps you decide how basic or advanced to go.
+
+──────────────────────────────────────────────────────────────────
+
+Q8.  How many of you are currently using Selenium in your project
+     right now?
+
+     → Why ask: Sets up the Playwright vs Selenium comparison
+       that comes next. Makes it personal.
+
+──────────────────────────────────────────────────────────────────
+
+Q9.  If I said browser automation tool — what is the first tool
+     that comes to your mind?
+
+     → Why ask: Most will say Selenium. You say:
+       "Exactly — Selenium has been the standard for 20 years.
+       Playwright is what comes next."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 4 — SLIDE 6 (Playwright vs Selenium)
+═══════════════════════════════════════════════════════════════════
+
+Q10. Who here has seen this error:
+     "ChromeDriver version does not match Chrome version" —
+     type yes in chat if you have hit this.
+
+     → Why ask: Guaranteed yes from everyone who has used Selenium.
+       Laughter. You then say: "Playwright never has this problem
+       because it manages the browser itself."
+
+──────────────────────────────────────────────────────────────────
+
+Q11. In your experience — out of 10 test failures — how many are
+     genuine bugs and how many are just random timing issues?
+
+     → Why ask: Answers will range from 30 to 70 percent flaky.
+       You then say: "Auto-wait eliminates most of those timing
+       failures — without you writing a single wait statement."
+
+──────────────────────────────────────────────────────────────────
+
+Q12. Has anyone used XPath selectors in Selenium and then had
+     them break after a front end release — even though the
+     feature itself did not change?
+
+     → Why ask: Every Selenium user has this story. Leads
+       directly into resilient locators explanation.
+
+──────────────────────────────────────────────────────────────────
+
+Q13. If you could change ONE thing about Selenium — what would
+     it be?
+
+     → Why ask: Great open discussion. Answers typically cover
+       setup pain, flaky tests, slow execution, or report quality.
+       For each answer — you can show how Playwright addresses it.
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 5 — SLIDE 7 (What We Built)
+═══════════════════════════════════════════════════════════════════
+
+Q14. If one command could tell you in 3 minutes whether your
+     dashboard is safe to deploy — how would that change your
+     daily workflow?
+
+     → Why ask: Gets the audience imagining the solution before
+       you reveal it. Builds anticipation.
+
+──────────────────────────────────────────────────────────────────
+
+Q15. Currently — between generating a dashboard and deploying it —
+     what steps does your team do to validate it is correct?
+
+     → Why ask: Surfaces the current pain. Some will say nothing.
+       Some will say manual check. Use it to reinforce the problem.
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 6 — SLIDE 9 (Code Walkthrough)
+═══════════════════════════════════════════════════════════════════
+
+Q16. Looking at this line on the screen —
+     page.locator(".kpi-box").count() >= 7
+     — can anyone guess what this is checking?
+
+     → Why ask: Engages developers. Someone will say "counting
+       KPI boxes." You say: "Exactly right — and that is all
+       there is to it."
+
+──────────────────────────────────────────────────────────────────
+
+Q17. Does this pattern look simple enough for a developer who
+     has never written a test before to understand and add to?
+
+     → Why ask: Gets developers to say yes. Removes the barrier
+       of "testing is only for QA people."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 7 — SLIDE 10 (Report Output)
+═══════════════════════════════════════════════════════════════════
+
+Q18. When something breaks in production today — how long does it
+     take your team to find out exactly what failed and where?
+
+     → Why ask: Answers range from minutes to hours. You then say:
+       "With Playwright the report tells you in seconds — section,
+       check, exact failure — no guessing."
+
+──────────────────────────────────────────────────────────────────
+
+Q19. How many of you currently have a record — a log or a file —
+     that shows what was validated and when before your last
+     deployment?
+
+     → Why ask: Most will say no. You then say:
+       "Every Playwright run saves a timestamped report.
+       That is your audit trail. It did not exist before."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 8 — SLIDE 15 (Playwright vs Selenium Deep Dive)
+═══════════════════════════════════════════════════════════════════
+
+Q20. In Selenium — if you forget to add a wait before clicking
+     an element that is still loading — what typically happens?
+
+     → Why ask: QA people will say ElementNotInteractableException,
+       NoSuchElementException, StaleElementReferenceException.
+       You say: "All of those go away with Playwright auto-wait."
+
+──────────────────────────────────────────────────────────────────
+
+Q21. Has anyone written a test that works perfectly on your
+     machine but fails on the CI pipeline — even though nothing
+     changed?
+
+     → Why ask: Classic Selenium timing problem. Everyone nods.
+       Leads into how Playwright's auto-wait solves this.
+
+──────────────────────────────────────────────────────────────────
+
+Q22. How many lines of wait or sleep code do you have in your
+     current test suite? Is it more than 10? More than 50?
+
+     → Why ask: Makes the problem concrete. Then say:
+       "With Playwright — that number is zero."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 9 — SLIDE 17 (3 Playwright Products)
+═══════════════════════════════════════════════════════════════════
+
+Q23. How many of you use GitHub Copilot or any AI coding
+     assistant in your daily development work?
+
+     → Why ask: Relevant because Playwright MCP and CLI connect
+       directly to these tools. Good segue into the AI products.
+
+──────────────────────────────────────────────────────────────────
+
+Q24. Has anyone tried asking Claude or Copilot to interact with
+     a browser — open a page, fill a form, click a button?
+     What was your experience?
+
+     → Why ask: Opens discussion about AI agents and browser
+       automation. Leads into MCP explanation naturally.
+
+──────────────────────────────────────────────────────────────────
+
+Q25. When you think about AI models controlling a browser —
+     what is the first concern that comes to your mind?
+
+     → Why ask: Great question. Answers will be security,
+       accuracy, speed, cost. Address each one as you explain
+       how MCP uses accessibility snapshots instead of screenshots.
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 10 — SLIDE 19 (Core Features)
+═══════════════════════════════════════════════════════════════════
+
+Q26. Before Playwright clicks a button — it checks five things
+     automatically. Can anyone guess what one of those five
+     checks might be?
+
+     → Why ask: Gets the audience thinking. Someone will say
+       visible or enabled. You walk through all five:
+       Visible, Stable, Enabled, Receives Events, Attached.
+
+──────────────────────────────────────────────────────────────────
+
+Q27. Has anyone ever tested their web application on a mobile
+     viewport? How did you do it?
+
+     → Why ask: People will say Chrome DevTools, resize browser,
+       real phone. You then say: "Playwright does this in one
+       line — no DevTools, no real device needed."
+
+──────────────────────────────────────────────────────────────────
+
+Q28. If you could intercept a network request in your application
+     and return a fake error response — what scenario would you
+     test first?
+
+     → Why ask: Practical and engaging. Developers will say
+       API timeout, server error, empty data. Leads into
+       network mocking explanation.
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 11 — SLIDE 20 (Tooling)
+═══════════════════════════════════════════════════════════════════
+
+Q29. If there was a tool that watched you click through your
+     website and wrote the test code for you automatically —
+     would you use it?
+
+     → Why ask: 100 percent yes from everyone. You then reveal:
+       "That is the Playwright Test Generator.
+       playwright codegen your-url. That is the command."
+
+──────────────────────────────────────────────────────────────────
+
+Q30. When a test fails — how do you currently debug it?
+     Add print statements? Re-run it? Add breakpoints?
+     Type your method in chat.
+
+     → Why ask: Everyone has a method. Leads into Trace Viewer.
+       You say: "With Playwright Trace Viewer — you never have
+       to re-run a failed test again. The full timeline is saved."
+
+──────────────────────────────────────────────────────────────────
+
+Q31. How many of you have a test suite that takes more than
+     30 minutes to run? Type yes in chat.
+
+     → Why ask: Leads into parallel execution. You say:
+       "Playwright runs everything in parallel by default.
+       No configuration. That 30 minutes could become 5."
+
+
+═══════════════════════════════════════════════════════════════════
+  SECTION 12 — CLOSING (Before Q&A)
+═══════════════════════════════════════════════════════════════════
+
+Q32. Now that you have seen what Playwright can do — is there
+     something specific in your current project where you think
+     this could save time?
+
+     → Why ask: Opens genuine conversation. Real use cases
+       surface. You connect with people individually after.
+
+──────────────────────────────────────────────────────────────────
+
+Q33. If you were going to try Playwright this week — what would
+     you start with? The Test Generator? Writing your first check?
+     Or exploring the VS Code extension?
+
+     → Why ask: Commits people to action. You can offer to
+       help anyone who tries it.
+
+──────────────────────────────────────────────────────────────────
+
+Q34. One final question — on a scale of likely to try Playwright
+     in the next two weeks — type HIGH, MEDIUM, or LOW in chat.
+
+     → Why ask: Good energetic close. Commits the audience.
+       You see who is interested for follow-up conversations.
+
+
+═══════════════════════════════════════════════════════════════════
+  QUICK REFERENCE — QUESTION BY SLIDE
+═══════════════════════════════════════════════════════════════════
+
+Before starting   →  Q1, Q2, Q3
+Slide 4           →  Q4, Q5, Q6
+Slide 5           →  Q7, Q8, Q9
+Slide 6           →  Q10, Q11, Q12, Q13
+Slide 7           →  Q14, Q15
+Slide 9           →  Q16, Q17
+Slide 10          →  Q18, Q19
+Slide 15          →  Q20, Q21, Q22
+Slide 17          →  Q23, Q24, Q25
+Slide 19          →  Q26, Q27, Q28
+Slide 20          →  Q29, Q30, Q31
+Before Q&A        →  Q32, Q33, Q34
+
+
+═══════════════════════════════════════════════════════════════════
+  GOLDEN RULES FOR ASKING QUESTIONS
+═══════════════════════════════════════════════════════════════════
+
+1.  After asking — wait 5 full seconds before continuing.
+    Silence feels long to you but normal to the audience.
+
+2.  Acknowledge every answer.
+    Say: "Exactly", "Great point", "Yes that is a common one"
+    Never say: "Wrong" or "Not quite"
+
+3.  If no one answers after 5 seconds — answer it yourself.
+    Say: "In my experience..." and move on.
+
+4.  One or two responses per question is enough.
+    Do not let one person dominate.
+
+5.  For screen share — say "type yes or no in chat" instead
+    of raise of hands. Much easier to see.
+
+6.  Do not ask too many questions on one slide.
+    One or two per slide is the right pace.
+
+7.  If someone gives a long answer — say "great, let me
+    come back to that after the session" and keep moving.
+
+8.  The best questions are the ones where you already know
+    the answer — and it leads into your next point perfectly.
+
+
+═══════════════════════════════════════════════════════════════════
+  Total questions: 34
+  Estimated time if all asked: adds 8-10 minutes
+  Recommended: pick 10-12 questions spread across the session
+═══════════════════════════════════════════════════════════════════
