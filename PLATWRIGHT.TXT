@@ -1,0 +1,242 @@
+# Find the Submit button
+page.get_by_role("button", name="Submit").click()
+
+# Find a link called Home
+page.get_by_role("link", name="Home").click()
+
+# Find a checkbox labelled "Remember me"
+page.get_by_role("checkbox", name="Remember me").check()
+
+# Find a heading
+page.get_by_role("heading", name="Dashboard").is_visible()
+
+
+<!-- Developer changes this -->
+<button class="btn-v1 primary blue">Submit</button>
+
+<!-- To this -->
+<button class="btn-v2 action-primary">Submit</button>
+
+"Selenium finds elements by CSS class names, IDs, and XPath — things a developer writes internally. If the developer renames a class, your test breaks. Even if the page looks identical to the user.
+Playwright takes a different approach. It finds elements the way a human would. A human does not look at class names. A human looks at — what does this button say? What is the label on this field? Is this a checkbox or a button?
+get_by_role finds the Submit button because it says Submit — not because of its CSS class.
+
+get_by_label finds the Email field because its label says Email address — not because of its ID.
+
+get_by_text finds the Overview tab because it says Overview — not because of its data attribute.
+When a developer refactors the CSS and renames all the classes — your Selenium tests break. Your Playwright tests keep working. Because the visible text and roles did not change."
+
+
+----MCP
+
+Now imagine you want to say to Claude:
+
+"Go to this website and fill in the form for me"
+
+Or:
+
+"Check if our dashboard loaded correctly"
+
+The problem is — Claude cannot see your browser. Claude lives in a chat window. It has no eyes into your screen.
+MCP solves this.
+
+What MCP Actually Is
+MCP = Model Context Protocol
+Think of it as a bridge between an AI model and your browser.
+Without MCP:                    With MCP:
+─────────────────               ──────────────────────────
+Claude          Browser         Claude ←──→ MCP ←──→ Browser
+  │                │              │         server
+  │   Cannot see   │              │
+  │   browser at   │            Claude says:
+  │   all          │            "Click the Submit button"
+                                MCP opens browser, clicks it
+                                Returns result to Claude
+
+What Is A Server Here
+When the script says "this is a server" — it simply means a running program on your machine that:
+
+Listens for instructions from the AI
+Executes those instructions in the browser
+Returns results back to the AI
+
+You start it with one command:
+bashnpx @playwright/mcp@latest
+Now your AI tool can talk to your browser.
+
+The Accessibility Snapshot — The Key Part
+This is the most important thing to understand.
+When Claude wants to interact with a webpage, it needs to see what is on the page. There are three ways to do this:
+
+Option 1 — Screenshot (Old way, expensive)
+Claude takes a screenshot of the page
+Claude sends it to a vision AI model
+Vision model analyses the image
+Returns: "I see a button that says Submit"
+Claude then acts on it
+Problems:
+
+Expensive — vision models cost more tokens
+Slow — image processing takes time
+Inaccurate — AI can misread images
+
+
+Option 2 — Raw HTML (Too much noise)
+html<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .btn-primary-v2 {
+        background: linear-gradient(...)
+        border-radius: 4px;
+        /* 500 more lines of CSS -->
+      }
+    </style>
+    <script>
+      // 2000 lines of JavaScript
+    </script>
+  </head>
+  <body>
+    <div class="wrapper-container">
+      <div class="inner-flex-row">
+        <button class="btn-primary-v2 action-submit">
+          Submit
+        </button>
+Problem:
+
+A typical webpage HTML is 50,000 to 200,000 tokens
+Claude has a context limit
+99% of it is CSS, JavaScript, divs — irrelevant noise
+
+
+Option 3 — Accessibility Snapshot (What Playwright MCP uses)
+- heading "GHCP Rollout Dashboard" [level=1]
+- button "Overview" [ref=e12]
+- button "Backend Unit Testing" [ref=e13]
+- button "Generate Test Cases" [ref=e14]
+- text "Total Team-Initiatives"
+- text "47"
+- button "Details" [ref=e45]
+- textbox "Search Team / Project" [ref=e67]
+- button "Reset" [ref=e89]
+This is the accessibility snapshot.
+It is the same information a screen reader uses to describe a page to a visually impaired user. Clean. Structured. Only what matters.
+Size: 200 to 400 tokens — instead of 50,000.
+
+How The AI Uses It — Step by Step
+You say to Claude:
+"Open the rollout dashboard and check if
+ the Overview tab has KPI cards"
+        ↓
+Claude calls Playwright MCP:
+"Take a snapshot of this HTML file"
+        ↓
+MCP opens browser, reads the page
+Returns accessibility snapshot:
+  - heading "GHCP Rollout Dashboard"
+  - button "Overview" [ref=e12]
+  - text "Total Team-Initiatives" [ref=e34]
+  - text "47" [ref=e35]
+  - text "Phase 1 Completed" [ref=e36]
+        ↓
+Claude reads the snapshot
+Understands: dashboard loaded, KPI cards exist
+Responds: "Yes — Overview tab has KPI cards.
+           Total Team-Initiatives shows 47"
+        ↓
+If you said "click Backend Unit Testing"
+Claude tells MCP: "click ref=e13"
+MCP clicks that button in the real browser
+Returns new snapshot
+        ↓
+Claude continues from there
+
+The ref Numbers
+You noticed [ref=e12], [ref=e13] in the snapshot.
+These are reference IDs that MCP assigns to every interactive element.
+When Claude wants to click something — instead of trying to figure out a CSS selector — it just says:
+click ref=e13
+MCP knows exactly which element that is. Fast. Accurate.
+
+The 40+ Browser Tools
+When the script says "40 browser tools" — these are the actions MCP can perform:
+Navigating:
+  browser_navigate         → go to a URL
+  browser_go_back          → click back button
+  browser_go_forward       → click forward
+
+Interacting:
+  browser_click            → click an element
+  browser_fill             → type into a field
+  browser_select_option    → choose from dropdown
+  browser_check            → tick a checkbox
+  browser_hover            → hover over element
+
+Reading:
+  browser_snapshot         → get accessibility snapshot
+  browser_take_screenshot  → take screenshot when needed
+  browser_get_text         → read text from element
+
+Files:
+  browser_upload_file      → upload a file
+  browser_download_file    → download a file
+
+Waiting:
+  browser_wait_for_text    → wait until text appears
+  browser_wait_for_element → wait until element exists
+
+Why No Vision Model Needed
+Old AI browser automation:
+Browser → Screenshot → Vision AI → Understands image → Acts
+         (expensive)  (slow)
+Playwright MCP:
+Browser → Accessibility Snapshot → Claude reads text → Acts
+         (cheap)                   (fast)
+Claude is a language model. It reads text brilliantly. It does not need to see an image. The accessibility snapshot IS text. So Claude reads it directly — no vision model in the middle.
+
+
+----ClI`
+
+Without CLI — Claude Code would have to use the full Playwright Python library. Which means running a full Python script every time it wants to check something.
+Claude Code wants to see what is on your page
+        ↓
+Runs a Python script
+        ↓
+Python starts
+Playwright launches Chromium
+Chromium opens your HTML file
+Takes snapshot
+Closes Chromium
+Python ends
+        ↓
+Returns result
+Every single time Claude Code wants to check one thing — this whole process runs. Slow. Heavy.
+
+What CLI Is — In Simple Words
+CLI = a set of simple terminal commands that Claude Code can run directly.
+Instead of running a full Python script — Claude Code just types:
+bashplaywright-cli snapshot file:///my/dashboard.html
+That is it. One command. Returns the accessibility snapshot instantly.
+bashplaywright-cli click "ref=e13"
+Clicks a button. Done.
+bashplaywright-cli fill "ref=e67" "test search"
+Types into a search box. Done.
+
+Think Of It Like This
+Without CLI — to check what is in the fridge, you have to:
+
+Start the car
+Drive to the shop
+Walk in
+Look at shelves
+Drive back
+Tell someone what you saw
+
+With CLI — to check what is in the fridge, you just:
+
+Open fridge
+Look
+Close fridge
+
+Same result. Much simpler. Much faster.
