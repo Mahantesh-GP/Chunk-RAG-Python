@@ -1,3 +1,27 @@
+
+# postman-collection-generator — Copilot Plugin
+
+> **Automatically creates and updates Postman collections for your REST APIs using VS Code Copilot Agent Mode.**
+> Give it your API project — it discovers every endpoint and generates a ready-to-import collection.
+> Four-stage pipeline. Zero external tools. No MCP server. No tokens.
+
+---
+
+## What It Does
+
+You open your API project → run the skill → it:
+
+1. **Scans** the project for controllers/endpoints (Stage 0)
+2. **Extracts** routes, HTTP methods, headers, and request/response payloads (Stage 1)
+3. **Standardizes** request names, folder structure, and headers per convention (Stage 2)
+4. **Generates & writes** the Postman collection JSON to `<project>/postman/collections/` (Stage 3 final)
+
+---
+
+## Plugin File Structure
+
+
+
 | File | Purpose |
 |---|---|
 | `plugin.json` | plugin identity & version (this plugin's own) |
