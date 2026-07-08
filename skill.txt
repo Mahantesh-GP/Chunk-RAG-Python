@@ -1,0 +1,39 @@
+| File | Purpose |
+|---|---|
+| `plugin.json` | plugin identity & version (this plugin's own) |
+| `CHANGELOG.md` | version history for this plugin |
+| `README.md` | this file |
+| `SKILL.md` | the skill brain (four-stage pipeline instructions) |
+| `stage0_endpoint_discovery.md` | Stage 0: how to parse controllers/routes |
+| `PostmanCollection.json` | canonical output schema reference |
+| `RUN_LOG_TEMPLATE.md` | audit log template (also embedded in SKILL.md) |
+
+> **Note for future plugin authors:** Each plugin (e.g. `brd-generator`) should have its own `plugin.json` and `CHANGELOG.md` inside its own folder. These are never shared across plugins.
+
+---
+
+## Prerequisites
+
+| Requirement | How to check |
+|---|---|
+| VS Code ≥ 1.93 | Help → About |
+| GitHub Copilot extension | Extensions (`Ctrl+Shift+X`) → `GitHub Copilot` → **Installed** |
+| GitHub Copilot subscription | Copilot chat panel opens without error |
+| Agent Mode enabled | Chat panel mode dropdown → **Agent** option visible |
+| Postman installed | Optional — only needed to test generated collections |
+
+---
+
+## How to Use
+
+**Step 1: Open the API project**
+Open the solution in Visual Studio 2026. Ensure the project has the latest code.
+
+**Step 2: Open GitHub Copilot Chat**
+Click the GitHub Copilot icon → open Chat → select **Agent** mode.
+
+**Step 3: Invoke the skill**
+Ask Copilot to generate/update the Postman collection for the project.
+
+**Step 4: Review output**
+Check the generated collection under `postman/collections/` and import into Postman to verify.
