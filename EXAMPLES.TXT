@@ -1,2 +1,1 @@
-uvx --from git+https://github.com/github/spec-kit.git specify init . --here --integration copilot --force
-
+Select-String -Path "C:\Users\6150080\copilot-otel.jsonl" -Pattern "cache" | Select-Object -First 3
