@@ -1,0 +1,5 @@
+{
+  "github.copilot.chat.otel.enabled": true,
+  "github.copilot.chat.otel.exporterType": "file",
+  "github.copilot.chat.otel.outfile": "C:\\Users\\<you>\\copilot-otel.jsonl"
+}
