@@ -70,14 +70,15 @@ Project discovery / ProjectContext.md
     be modified")
    ↓
 Reverse-engineer spec.md from the old system's BEHAVIOR, not its
-implementation
+implementation — for the SPECIFIC module/change being worked on now,
+NOT the whole legacy system in one pass (see caveat below)
    ("spec.md describes what the system must do; it deliberately excludes
      how the old system happened to do it")
    ↓
 Write a NEW constitution.md — for the TARGET architecture,
    not the legacy one
    ↓
-/plan against the new stack, using the old system's spec.md +
+/plan against the new stack, using that module's spec.md +
    the new constitution.md as inputs
    ↓
 /tasks → /implement incrementally (module by module; each module can
@@ -87,6 +88,17 @@ Validate PARITY — quickstart.md acceptance criteria are derived from
    the OLD system's actual behavior, proving no functionality was lost
    in the rebuild
 ```
+
+**⚠️ Important caveat — reverse-engineering is a derivative artifact, and this has been demonstrated to cause real problems, not just a theoretical risk:**
+
+A reverse-engineered spec is one step removed from the real source of truth (the actual old code). Each further derivation risks silently losing information — because if the codebase was fully understood already, it wouldn't be brownfield in the first place.
+
+**This was tested directly** (Hari Krishnan, "Spec-Driven Development on Brownfield Projects"): a change proposal built from a previously reverse-engineered, whole-system spec missed a real database check-constraint issue — existing data needed a migration step before a schema change could be safely made. A second attempt, built by going straight to the real code fresh for just that one change (skipping the old reverse-engineered spec entirely), caught the issue the first approach missed.
+
+**The corrected recommendation:**
+- ✅ Reverse-engineer a spec for **one specific module or change at a time**, always going directly to the real code as the source of truth for that change.
+- ❌ Do **not** reverse-engineer one comprehensive spec for the whole legacy system upfront, and then treat it as a trustworthy foundation for later, unrelated changes — each additional change built on top of a derived spec compounds the risk of missing something the original code actually encodes (like our DB constraint example above).
+- Over time, expect the modernized system to be a natural patchwork — areas you've actively rebuilt have real, verified specs; untouched legacy areas may have none yet, and that's fine, especially for stable or rarely-changed code.
 
 **The key mechanism that makes this possible:** `spec.md`'s deliberate "no implementation details" rule. A spec reverse-engineered from the old system captures pure business behavior, so it can be re-planned against a completely different architecture without dragging legacy technical decisions along. The old implementation is used for *discovery only* — it must not leak into the spec itself.
 
