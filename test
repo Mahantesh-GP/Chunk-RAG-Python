@@ -1,0 +1,41 @@
+Review and amend the generated constitution based on the latest stakeholder direction.
+
+Two principles need correction.
+
+1. Business Behavior Preservation
+
+Preserve approved business/domain semantics such as:
+- rollout calculations
+- status normalization
+- customer approval behavior
+- overdue rules
+- metric interpretation
+- source-data interpretation
+- approved filter semantics where they represent business behavior
+
+However, do NOT require preservation of the current application's navigation, screen structure, information hierarchy, or user workflows merely because they exist in the legacy dashboard.
+
+Existing workflows are reference evidence and may be redesigned when discovery identifies a better way to support the business outcome.
+
+2. Replace "UX Continuity Without Pixel Lock-In" with:
+
+"UX Evidence, Not UX Lock-In"
+
+The current RLLOT dashboard provides evidence about terminology, useful information, current user behavior, and operational needs.
+
+The new product MAY reorganize:
+- navigation
+- information hierarchy
+- dashboard structure
+- prioritization
+- summaries
+- drill-down patterns
+- interaction workflows
+
+when discovery or stakeholder clarification demonstrates a better way to represent the rollout problem.
+
+Exact tabs, cards, tables, layout, colors, HTML, CSS, SVG mechanics, and legacy screen structure MUST NOT become architectural or product requirements unless explicitly validated by stakeholders.
+
+Keep the remaining constitution principles unchanged unless these corrections create a direct contradiction.
+
+Update the constitution version/amendment record appropriately.
