@@ -1,26 +1,27 @@
-Before proceeding to tasks, correct the technical plan so it conforms to the clarified spec.md.
+Before generating tasks, correct the remaining terminology inconsistencies in spec.md.
 
-Do not apply planning defaults that contradict decisions already captured during /speckit.clarify.
+The source model is:
 
-Corrections:
+one or more DR workbooks
+→ each DR workbook contains all six required initiative sheets.
 
-1. Duplicate row IDs:
-Do not accept only the first occurrence.
-Preserve all otherwise-valid rows with duplicate Excel "#" values and record a warning for each duplicate condition.
-The Excel row number is source/display metadata, not the application's unique persistent identity.
+Please make these corrections only:
 
-2. Import history retention:
-Do not retain only the last 100 records.
-For V1, retain all import-run metadata/diagnostic records with no automatic purge.
-This applies only to import audit/history, not historical rollout snapshots or trend data.
+1. In User Story 1 and its acceptance scenarios, remove any wording saying
+   "one workbook per initiative". Replace it with one or more DR workbooks,
+   each containing all six required initiative sheets.
 
-3. Missing required sheet:
-If any required initiative sheet is missing, record the blocking validation error, continue validating the remaining sheets/workbooks so all diagnostics are collected, and fail the complete batch at activation.
-Partial activation is not allowed.
+2. In Edge Cases, remove questions that treat initiatives as separate workbooks.
+   Replace them with relevant DR-workbook edge cases such as no workbook
+   submitted, missing required initiative sheet, duplicate workbook submission,
+   or duplicate DR identity.
 
-4. Invalid dates:
-Keep the existing decision: invalid optional dates become null with a non-fatal warning and the row is retained.
+3. In the Workbook Submission entity, replace "exactly six sheets" with
+   "contains all six required initiative sheets". Do not reject additional
+   non-required sheets unless an explicit requirement says to do so.
 
-Update plan.md and research.md where necessary.
-Use spec.md and constitution.md as the source of truth.
+4. Rename "Unresolved Behaviors (Require Decision Before Planning)" to
+   "Resolved Behavior Decisions", since all listed decisions are resolved.
+
+Do not change the previously clarified behavior decisions.
 Do not generate tasks yet.
