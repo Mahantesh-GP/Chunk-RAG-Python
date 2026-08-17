@@ -1,44 +1,26 @@
-spec.md
+Before proceeding to tasks, correct the technical plan so it conforms to the clarified spec.md.
 
-Update the current Feature 001 spec with this clarification:
+Do not apply planning defaults that contradict decisions already captured during /speckit.clarify.
 
-DR workbooks are not guaranteed to have identical physical column layouts.
-They share common business fields, but some DR workbooks may contain additional
-columns or metrics that other DRs do not require.
+Corrections:
 
-The import behavior must:
-- identify canonical fields by semantic header name rather than fixed column position;
-- allow additional columns without shifting/corrupting known mappings;
-- dynamically discover metric columns;
-- normalize different DR workbook variants into the same canonical business model;
-- not require DR-specific parsing behavior.
+1. Duplicate row IDs:
+Do not accept only the first occurrence.
+Preserve all otherwise-valid rows with duplicate Excel "#" values and record a warning for each duplicate condition.
+The Excel row number is source/display metadata, not the application's unique persistent identity.
 
-If an extra column represents genuinely different business semantics rather than
-just a layout variation, surface it for clarification.
+2. Import history retention:
+Do not retain only the last 100 records.
+For V1, retain all import-run metadata/diagnostic records with no automatic purge.
+This applies only to import audit/history, not historical rollout snapshots or trend data.
 
-Do not create the technical plan yet. Update spec.md only.
+3. Missing required sheet:
+If any required initiative sheet is missing, record the blocking validation error, continue validating the remaining sheets/workbooks so all diagnostics are collected, and fail the complete batch at activation.
+Partial activation is not allowed.
 
+4. Invalid dates:
+Keep the existing decision: invalid optional dates become null with a non-fatal warning and the row is retained.
 
---------
-
-
-plna.md
-
-/speckit.plan
-
-Technical direction for Feature 001:
-
-- ASP.NET Core / C# backend
-- EF Core for persistence abstraction
-- SQLite for the pilot/V1 provider
-- Keep persistence portable for possible SQL Server/PostgreSQL later
-- Manual/controlled Excel input for this feature
-- Use a header-driven common ingestion pipeline; no DR-specific parsers
-- Separate Excel reading, validation, normalization, domain logic, persistence,
-  diagnostics and activation so they are independently testable
-- Preserve last-known-good dataset through atomic activation
-- Include automated compatibility tests against representative RLLOT workbooks
-- No React/dashboard UI, SharePoint automation or scheduling in Feature 001
-
-Use the clarified spec.md and constitution as the source of truth.
-Surface any remaining technical uncertainty instead of guessing.
+Update plan.md and research.md where necessary.
+Use spec.md and constitution.md as the source of truth.
+Do not generate tasks yet.
