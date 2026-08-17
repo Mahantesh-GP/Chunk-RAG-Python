@@ -1,34 +1,44 @@
-Technology stack for the technical plan:
+spec.md
 
-- ASP.NET Core server-side application/API
-- React frontend
+Update the current Feature 001 spec with this clarification:
+
+DR workbooks are not guaranteed to have identical physical column layouts.
+They share common business fields, but some DR workbooks may contain additional
+columns or metrics that other DRs do not require.
+
+The import behavior must:
+- identify canonical fields by semantic header name rather than fixed column position;
+- allow additional columns without shifting/corrupting known mappings;
+- dynamically discover metric columns;
+- normalize different DR workbook variants into the same canonical business model;
+- not require DR-specific parsing behavior.
+
+If an extra column represents genuinely different business semantics rather than
+just a layout variation, surface it for clarification.
+
+Do not create the technical plan yet. Update spec.md only.
+
+
+--------
+
+
+plna.md
+
+/speckit.plan
+
+Technical direction for Feature 001:
+
+- ASP.NET Core / C# backend
 - EF Core for persistence abstraction
-- SQLite as the V1/pilot relational provider
-- Keep the domain/persistence design database-portable so SQL Server/PostgreSQL can be used later if required
-- Manual/controlled Excel input for Feature 001
-- No SharePoint automation in this feature
+- SQLite for the pilot/V1 provider
+- Keep persistence portable for possible SQL Server/PostgreSQL later
+- Manual/controlled Excel input for this feature
+- Use a header-driven common ingestion pipeline; no DR-specific parsers
+- Separate Excel reading, validation, normalization, domain logic, persistence,
+  diagnostics and activation so they are independently testable
+- Preserve last-known-good dataset through atomic activation
+- Include automated compatibility tests against representative RLLOT workbooks
+- No React/dashboard UI, SharePoint automation or scheduling in Feature 001
 
-Resolve the four remaining behaviors as follows:
-
-1. Missing-sheet policy:
-Every submitted DR workbook must contain all six required initiative sheets.
-If any required sheet is missing, record the workbook validation error.
-Continue validating the other submitted workbooks so all errors can be reported, but fail the complete batch at activation.
-Partial dataset activation is not allowed.
-
-2. Duplicate row IDs within a sheet:
-Do not reject the batch only because the Excel row-number/# value is duplicated.
-Preserve both valid data rows and record a warning.
-Do not use the Excel row number as the application's unique persistent identity.
-
-3. Import history retention:
-For this pilot, retain import-run metadata/diagnostics for all import attempts.
-Maintain only the current last-known-good active business dataset.
-Historical business-data snapshots/trend history are not required in Feature 001.
-
-4. Invalid date severity:
-If an optional date cell cannot be interpreted as a valid date, store the normalized date as null and record a warning.
-Do not reject the complete batch solely for an invalid optional date.
-Do not invent or default a date.
-
-Update spec.md with these decisions where they affect requirements, then continue building the technical plan.
+Use the clarified spec.md and constitution as the source of truth.
+Surface any remaining technical uncertainty instead of guessing.
