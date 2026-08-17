@@ -1,41 +1,34 @@
-Review and amend the generated constitution based on the latest stakeholder direction.
+Technology stack for the technical plan:
 
-Two principles need correction.
+- ASP.NET Core server-side application/API
+- React frontend
+- EF Core for persistence abstraction
+- SQLite as the V1/pilot relational provider
+- Keep the domain/persistence design database-portable so SQL Server/PostgreSQL can be used later if required
+- Manual/controlled Excel input for Feature 001
+- No SharePoint automation in this feature
 
-1. Business Behavior Preservation
+Resolve the four remaining behaviors as follows:
 
-Preserve approved business/domain semantics such as:
-- rollout calculations
-- status normalization
-- customer approval behavior
-- overdue rules
-- metric interpretation
-- source-data interpretation
-- approved filter semantics where they represent business behavior
+1. Missing-sheet policy:
+Every submitted DR workbook must contain all six required initiative sheets.
+If any required sheet is missing, record the workbook validation error.
+Continue validating the other submitted workbooks so all errors can be reported, but fail the complete batch at activation.
+Partial dataset activation is not allowed.
 
-However, do NOT require preservation of the current application's navigation, screen structure, information hierarchy, or user workflows merely because they exist in the legacy dashboard.
+2. Duplicate row IDs within a sheet:
+Do not reject the batch only because the Excel row-number/# value is duplicated.
+Preserve both valid data rows and record a warning.
+Do not use the Excel row number as the application's unique persistent identity.
 
-Existing workflows are reference evidence and may be redesigned when discovery identifies a better way to support the business outcome.
+3. Import history retention:
+For this pilot, retain import-run metadata/diagnostics for all import attempts.
+Maintain only the current last-known-good active business dataset.
+Historical business-data snapshots/trend history are not required in Feature 001.
 
-2. Replace "UX Continuity Without Pixel Lock-In" with:
+4. Invalid date severity:
+If an optional date cell cannot be interpreted as a valid date, store the normalized date as null and record a warning.
+Do not reject the complete batch solely for an invalid optional date.
+Do not invent or default a date.
 
-"UX Evidence, Not UX Lock-In"
-
-The current RLLOT dashboard provides evidence about terminology, useful information, current user behavior, and operational needs.
-
-The new product MAY reorganize:
-- navigation
-- information hierarchy
-- dashboard structure
-- prioritization
-- summaries
-- drill-down patterns
-- interaction workflows
-
-when discovery or stakeholder clarification demonstrates a better way to represent the rollout problem.
-
-Exact tabs, cards, tables, layout, colors, HTML, CSS, SVG mechanics, and legacy screen structure MUST NOT become architectural or product requirements unless explicitly validated by stakeholders.
-
-Keep the remaining constitution principles unchanged unless these corrections create a direct contradiction.
-
-Update the constitution version/amendment record appropriately.
+Update spec.md with these decisions where they affect requirements, then continue building the technical plan.
